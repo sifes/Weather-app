@@ -1,0 +1,37 @@
+$main-color: #4793FF;
+$gray: #939CB0;
+$white: #fff;
+
+$light-color: #000;
+$dark-color: #fff;
+
+$dark-background-component: #4F4F4F;
+$light-background-component: #fff;
+
+$dark-background-day: #2E3035;
+$light-background-day: #4793FF33;
+
+$dark-background-body: #0D1117;
+$light-background-body: #fff;
+
+:root {
+    // text
+    --light-color: #{$light-color};
+    --dark-color: #{$dark-color};
+    --default-color: var(#{--light-color});
+
+    // background of components
+    --light-background-component: #{$light-background-component};
+    --dark-background-component: #{$dark-background-component};
+    --default-background-component: var(#{--light-background-component});
+
+    // background of cards
+    --light-background-day: #{$light-background-day};
+    --dark-background-day: #{$dark-background-day};
+    --default-background-day: var(#{--light-background-day});
+
+    // text
+    --light-background-body: #{$light-background-body};
+    --dark-background-body: #{$dark-background-body};
+    --default-background-body: var(#{--light-background-body});
+}

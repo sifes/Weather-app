@@ -1,0 +1,21 @@
+@use 'scss-reset/reset';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import './variables.scss';
+@import './header.scss';
+@import './home.scss';
+@import './thisday.scss';
+@import './thisdayinfo.scss';
+@import './forecast.scss';
+@import './onedaydetailed.scss';
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--default-background-body);
+}
+
+.wrapper {
+    max-width: 1240px;
+    padding: 0 20px ;
+    margin: 0 auto;
+}

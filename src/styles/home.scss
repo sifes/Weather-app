@@ -1,0 +1,8 @@
+.days-wrapper {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 40px;
+    @media (max-width:991px) {
+        flex-direction: column;
+    }
+}

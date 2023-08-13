@@ -1,0 +1,29 @@
+.header {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.logo span {
+    color: $main-color;
+    font-size: 25px;
+    text-transform: uppercase;
+    @media (max-width:560px) {
+        display: none;
+    }
+} 
+
+.select {
+    display: flex;
+    gap: 20px;
+    & img {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,98 @@
+.tabs-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tabs {
+    display: flex;
+    gap: 15px;
+    @media (max-width:480px) {
+        flex-direction: column;
+    }
+}
+
+.tab-button {
+    cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 5px;
+    background: var(--default-background-component);
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    font-size: 18px;
+    color: var(--default-color);
+    &.active {
+         background: $main-color;
+         color: #fff;
+    }
+}
+.tab-cancel {
+    cursor: pointer;
+    padding: 10px 24px;
+    color: var(--default-color);
+    border-radius: 5px;
+    background: var(--default-background-component);
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    font-size: 18px;
+    max-height: 42px;
+}
+
+.days {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    // flex-wrap: wrap;
+    overflow: scroll;
+    align-items: center;
+    background-color:var(--default-background-component) ;
+    padding: 18px;
+    border-radius: 20px 20px 10px 10px;
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    margin-bottom: 30px;
+}
+.day {
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 10px;
+    padding: 20px;
+    flex:1 0 auto;
+    background: var(--default-background-day);
+    & .day-name {
+        color: var(--default-color);
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    & .day-date {
+        color: #939CB0;
+        font-size: 14px;    
+        margin-bottom: 12px;
+     }
+    & .day-img {
+        width: 144px;
+        height: 144px; 
+        padding: 12px;  
+        flex-shrink: 0;
+     }
+    & .day-tempDay { 
+        color: var(--default-color);
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 6px;
+    }
+    & .day-tempNight {
+        color: #939CB0;
+        font-size: 13px;
+        margin-bottom: 6px;
+
+     }
+    & .day-info {
+        color: #939CB0;
+        font-size: 13px;
+     }
+    &:hover {
+        transform: scale(1.02);
+    }
+}
