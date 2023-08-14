@@ -15,7 +15,7 @@ const ThisDay = ({weather, city}: Props) => {
           <span>{Math.round(weather.main.temp)}° </span>
           <p>Today</p>
         </div>
-        <img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt="sun" />
+        <img src={`assets/images/weather/${weather.weather[0].icon}.png`} alt="sun" />
       </div>
       <div className="thisDay-time">Time: <span>{weather.dt_txt.split(' ')[1].split(':')[0] + ':00'}</span></div>
       <div className="thisDay-city">city: <span>{city}</span></div>

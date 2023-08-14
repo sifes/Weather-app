@@ -1,14 +1,12 @@
 import React from 'react';
 import { Weather } from '../../../../types';
-const OneDayDetailedItem = ({weather}:any ) => {
-	
-  
+const OneDayDetailedItem = ({weather}:{weather: Weather} ) => {
 	return (
 		<li className='item'>
-			<img className='image' src='assets/images/weather/cloudy.svg' alt='cloudy' />
-			<div className='temp'>+{weather.main.temp}</div>
-			<div className='time'>{weather.dt_txt.split(' ')[1].split(':')[0] + ':00'}</div>
-			<div className='desc'>mainly cloudy</div>
+			<img className='image' src={`assets/images/weather/${weather.weather[0].icon}.png`} alt='cloudy' />
+			<div className='temp'>+{weather.main.temp.toFixed(1)}°</div>
+			<div className='time'>{weather.dt_txt.slice(11,16)}</div>
+			<div className='desc'>{weather.weather[0].description}</div>
 			<div className='wind'>wind speed: {weather.wind.speed} m/s <br/>
 				From:{' '}  
 				{

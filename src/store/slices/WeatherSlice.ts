@@ -21,17 +21,23 @@ export const WeatherSlice = createSlice({
 		onTabsClick(state, action) {
 			switch (action.payload.id) {
 				case 0:
+					state.isDaysShown= false
 					state.activeDay = action.payload.activeDay
 					break;
 				case 1:
+					state.isDaysShown= false
 					state.activeDay = action.payload.activeDay
 				break;
 				case 2:
+					state.isDaysShown= true
 					state.activeDay = action.payload.activeDay
 				break;
 				default:
 					break;
 			}
+		},
+		onDayClick(state, action) {
+			state.activeDay = action.payload
 		}
 	},
 	// extraReducers: {
@@ -56,6 +62,6 @@ export const WeatherSlice = createSlice({
 	// },
 });
 
-export const {onTabsClick} = WeatherSlice.actions;
+export const {onTabsClick,onDayClick} = WeatherSlice.actions;
 
 export default WeatherSlice.reducer;

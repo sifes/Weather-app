@@ -20,7 +20,6 @@ const Home: React.FC = () => {
 	}
 
   const weatherArray = data.list
-  console.log(weatherArray)
   const currentCity = data.city.name
 	return (
 		<>

@@ -1,6 +1,6 @@
 .oneDayDetailed {
     display: flex;
-    padding: 12px;
+    padding: 20px;
     border-radius: 15px;
     background-color: var(--default-background-component);
     color: var(--default-color);
@@ -14,14 +14,15 @@
         padding: 12px;
         border-radius: 4px;
         text-align: center;
-        flex-shrink: 0;
+        flex: 1 0 auto;
         max-width: 150px;
     }
 
     & .image {
         width: 96px;
         height: 96px;
-        margin-bottom: 8px;
+        margin-bottom: 20px;
+        padding: 8px;
     }
     & .temp {
         font-size: 32px;

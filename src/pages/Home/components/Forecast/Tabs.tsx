@@ -4,9 +4,6 @@ import { useCustomDispatch, useCustomSelector } from '../../../../hooks/storeHoo
 
 const Tabs = ({today, tomorrow}:any) => {
   const dispatch = useCustomDispatch()
-  const {activeDay} = useCustomSelector(state=>state.WeatherSliceReducer)
-
-
 
  const items = [
     { 
