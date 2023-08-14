@@ -6,12 +6,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type State = {
 	isDaysShown: boolean,
-	activeDay: []
+	activeDay: Weather[]
+	isDetailedDayShown: boolean
 };
 
 const initialState: State = {
 	isDaysShown: true,
-	activeDay: []
+	activeDay: [],
+	isDetailedDayShown: false
 };
 
 export const WeatherSlice = createSlice({
@@ -22,14 +24,17 @@ export const WeatherSlice = createSlice({
 			switch (action.payload.id) {
 				case 0:
 					state.isDaysShown= false
+					state.isDetailedDayShown= true
 					state.activeDay = action.payload.activeDay
 					break;
 				case 1:
 					state.isDaysShown= false
+					state.isDetailedDayShown= true
 					state.activeDay = action.payload.activeDay
 				break;
 				case 2:
 					state.isDaysShown= true
+					state.isDetailedDayShown= true
 					state.activeDay = action.payload.activeDay
 				break;
 				default:
@@ -37,7 +42,12 @@ export const WeatherSlice = createSlice({
 			}
 		},
 		onDayClick(state, action) {
+			state.isDetailedDayShown= true
 			state.activeDay = action.payload
+		},
+		onCancelClick(state) {
+			state.isDaysShown= true
+			state.isDetailedDayShown = false
 		}
 	},
 	// extraReducers: {
@@ -62,6 +72,6 @@ export const WeatherSlice = createSlice({
 	// },
 });
 
-export const {onTabsClick,onDayClick} = WeatherSlice.actions;
+export const {onTabsClick,onDayClick,onCancelClick} = WeatherSlice.actions;
 
 export default WeatherSlice.reducer;

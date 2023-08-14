@@ -1,5 +1,5 @@
 import React from 'react'
-import { onTabsClick } from '../../../../store/slices/WeatherSlice';
+import { onCancelClick, onTabsClick } from '../../../../store/slices/WeatherSlice';
 import { useCustomDispatch, useCustomSelector } from '../../../../hooks/storeHooks';
 
 const Tabs = ({today, tomorrow}:any) => {
@@ -28,7 +28,7 @@ const Tabs = ({today, tomorrow}:any) => {
     <div className='tabs'>
       {items.map((item) => <div onClick={()=> dispatch(onTabsClick({id:item.id, activeDay: item.activeDay}))} key={item.id} className='tab-button'>{item.value}</div>)}
     </div>
-      <div  className='tab-cancel'>Cancel</div>
+      <div onClick={()=> dispatch(onCancelClick())} className='tab-cancel'>Cancel</div>
     </div>
   )
 }

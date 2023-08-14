@@ -27,3 +27,4 @@ const OneDayDetailedItem = ({weather}:{weather: Weather} ) => {
 };
 
 export default OneDayDetailedItem;
+{/* <div className='time'>{(new Date(weather.dt_txt)).toString().split('').slice(0,10)}</div> */}
