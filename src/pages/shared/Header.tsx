@@ -3,6 +3,7 @@ import Select from 'react-select'
 import useTheme from '../../hooks/useTheme'
 import { useCustomDispatch } from '../../hooks/storeHooks'
 import { onSelectClick } from '../../store/slices/WeatherSlice'
+import { storage } from '../../storage/storage'
 const Header:React.FC = () => {
   const dispatch = useCustomDispatch()
 
@@ -38,9 +39,11 @@ const Header:React.FC = () => {
       </div>
       <div className="select">
         <img onClick={()=>theme.changeTheme(theme.theme==='light'?'dark':'light')} src="assets/images/drop.svg" alt="drop" />
-        <Select defaultValue={options[0]} className='select-city' styles={colourStyles} options={options} isSearchable onChange={(e)=>dispatch(onSelectClick(e?.value))}/>
+        <Select defaultValue={storage.getItem('city')||options[0]} className='select-city' styles={colourStyles} options={options} onChange={(e)=>{
+          dispatch(onSelectClick(e?.value))
+          storage.setItem('city', options.find(item => item.value===e?.value) )
+        }}/>
       </div>
-      
     </header>
   )
 }
