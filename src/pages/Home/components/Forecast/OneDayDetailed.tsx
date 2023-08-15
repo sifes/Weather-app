@@ -10,11 +10,11 @@ const OneDayDetailed = () => {
 				<div className='oneDayDetailedPre'>Choose a day to see it more detailed!</div>
 			) : (
 				<>
+					<div>{new Date(activeDay[0].dt_txt).toString().slice(0, 16)}</div>
 					<ul className='oneDayDetailedWrapper'>
 						{activeDay.map(oneDayDetailedInfo => (
 							<OneDayDetailedItem key={oneDayDetailedInfo.dt} weather={oneDayDetailedInfo} />
 						))}
-						)
 					</ul>
 				</>
 			)}

@@ -8,12 +8,14 @@ type State = {
 	isDaysShown: boolean,
 	activeDay: Weather[]
 	isDetailedDayShown: boolean
+	activeCity: string
 };
 
 const initialState: State = {
 	isDaysShown: true,
 	activeDay: [],
-	isDetailedDayShown: false
+	isDetailedDayShown: false,
+	activeCity: 'london'
 };
 
 export const WeatherSlice = createSlice({
@@ -48,6 +50,9 @@ export const WeatherSlice = createSlice({
 		onCancelClick(state) {
 			state.isDaysShown= true
 			state.isDetailedDayShown = false
+		},
+		onSelectClick(state,action) {
+			state.activeCity = action.payload
 		}
 	},
 	// extraReducers: {
@@ -72,6 +77,6 @@ export const WeatherSlice = createSlice({
 	// },
 });
 
-export const {onTabsClick,onDayClick,onCancelClick} = WeatherSlice.actions;
+export const {onTabsClick,onDayClick,onCancelClick,onSelectClick} = WeatherSlice.actions;
 
 export default WeatherSlice.reducer;

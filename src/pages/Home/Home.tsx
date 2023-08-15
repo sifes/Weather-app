@@ -13,7 +13,10 @@ const Home: React.FC = () => {
 	// React.useEffect(()=> {
 	//  dispatch(fetchWeather())
 	// }, [])
-	const { data, isLoading } = weatherAPI.useFetchWeatherDataQuery(CITIES.LONDON);
+	const selector = useCustomSelector
+	const {activeCity} = useCustomSelector(state=>state.WeatherSliceReducer)
+
+	const { data, isLoading} = weatherAPI.useFetchWeatherDataQuery(activeCity);
 
 	if (isLoading) {
 		return <div>Loading...</div>;

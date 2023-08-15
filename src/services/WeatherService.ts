@@ -12,6 +12,7 @@ const cities:any = {
         lat: 48.86,
         lon: 2.35
     },
+    
 }
 
 export const weatherAPI = createApi({
@@ -26,14 +27,4 @@ export const weatherAPI = createApi({
         })
     })
 })
-
-// export class WeatherService {
-//     static getWeather(city:string): Promise<AxiosResponse<Weather>> {
-//         const {lat,lon} = cities[city] // if open weather 3.0
-//         console.log(city)
-//         const a = api.get<Weather>(`?lat=${lat}&lon=${lon}`)
-//         return a
-//     }
-// }
-
 

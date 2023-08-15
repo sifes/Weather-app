@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react'
 import Select from 'react-select'
 import useTheme from '../../hooks/useTheme'
+import { useCustomDispatch } from '../../hooks/storeHooks'
+import { onSelectClick } from '../../store/slices/WeatherSlice'
 const Header:React.FC = () => {
+  const dispatch = useCustomDispatch()
+
   const theme = useTheme()
   const options = [
     { value: 'london', label: 'London' },
     { value: 'kyiv', label: 'Kyiv' },
-    { value: 'paris', label: 'Paris' }
+    { value: 'paris', label: 'Paris' },
   ]
 
 
@@ -31,7 +35,7 @@ const Header:React.FC = () => {
       </div>
       <div className="select">
         <img onClick={()=>theme.changeTheme(theme.theme==='light'?'dark':'light')} src="assets/images/drop.svg" alt="drop" />
-        <Select defaultValue={options[0]} className='select-city' styles={colourStyles} options={options} />
+        <Select defaultValue={options[0]} className='select-city' styles={colourStyles} options={options} isSearchable onChange={(e)=>dispatch(onSelectClick(e?.value))}/>
       </div>
       
     </header>
