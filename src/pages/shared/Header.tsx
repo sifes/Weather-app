@@ -11,6 +11,9 @@ const Header:React.FC = () => {
     { value: 'london', label: 'London' },
     { value: 'kyiv', label: 'Kyiv' },
     { value: 'paris', label: 'Paris' },
+    { value: 'newYork', label: 'New-York' },
+    { value: 'tokyo', label: 'Tokyo' },
+    { value: 'sydney', label: 'Sydney' },
   ]
 
 

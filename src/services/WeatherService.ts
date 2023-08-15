@@ -12,6 +12,18 @@ const cities:any = {
         lat: 48.86,
         lon: 2.35
     },
+    newYork: {
+        lat: 40.7,
+        lon: -74
+    },
+    tokyo: {
+        lat: 35.68,
+        lon: 139.69
+    },
+    sydney: {
+        lat: 33.8,
+        lon: 151.2 
+    },
     
 }
 
@@ -22,7 +34,6 @@ export const weatherAPI = createApi({
         fetchWeatherData: build.query({
             query: (city)=> ({
                 url: `?lat=${cities[city].lat}&lon=${cities[city].lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`,
-                
             })
         })
     })
