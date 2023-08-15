@@ -55,26 +55,6 @@ export const WeatherSlice = createSlice({
 			state.activeCity = action.payload
 		}
 	},
-	// extraReducers: {
-	// 	[fetchWeather.fulfilled.type]: (state: State, action: PayloadAction<AxiosResponse<Weather>>) => {
-	// 		state.weather = action.payload.data;
-	// 		state.isLoading = false;
-	// 		state.response = {
-	// 			status: action.payload.status,
-	// 			message: action.payload.statusText,
-	// 		};
-	// 	},
-    //     [fetchWeather.pending.type]: (state: State) => {
-	// 		state.isLoading = true;
-	// 	},
-    //     [fetchWeather.rejected.type]: (state: State, action: PayloadAction<AxiosResponse<Weather>>) => {
-	// 		state.isLoading = false;
-	// 		state.response = {
-	// 			status: action.payload.status,
-	// 			message: action.payload.statusText,
-	// 		};
-	// 	},
-	// },
 });
 
 export const {onTabsClick,onDayClick,onCancelClick,onSelectClick} = WeatherSlice.actions;

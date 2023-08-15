@@ -5,6 +5,8 @@ import { useCustomDispatch, useCustomSelector } from '../../hooks/storeHooks'
 import { onSelectClick } from '../../store/slices/WeatherSlice'
 import { storage } from '../../storage/storage'
 import { weatherAPI } from '../../services/WeatherService'
+import { Link, Router } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Header:React.FC = () => {
   const {activeCity} = useCustomSelector(state=>state.WeatherSliceReducer)
@@ -25,7 +27,6 @@ const Header:React.FC = () => {
     { value: 'paris', label: 'Paris' },
     { value: 'newYork', label: 'New-York' },
     { value: 'tokyo', label: 'Tokyo' },
-    { value: 'sydney', label: 'Sydney' },
   ]
 
 
@@ -45,10 +46,10 @@ const Header:React.FC = () => {
 
   return (
     <header className='header'>
-      <div className="logo">
+      <NavLink to={'/'} className="logo">
         <img src="assets/images/logo.svg" alt="logo" />
         <span>Weather</span>
-      </div>
+      </NavLink>
       <div className="select">
         <img onClick={()=>theme.changeTheme(theme.theme==='light'?'dark':'light')} src="assets/images/drop.svg" alt="drop" />
         <Select defaultValue={storage.getItem('city')||options[0]} className='select-city' placeholder='search' styles={colourStyles} options={options} onChange={(e)=>{

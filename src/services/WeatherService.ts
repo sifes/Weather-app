@@ -20,10 +20,6 @@ const cities:any = {
         lat: 35.68,
         lon: 139.69
     },
-    sydney: {
-        lat: 33.8,
-        lon: 151.2 
-    },
     
 }
 

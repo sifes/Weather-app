@@ -18,20 +18,20 @@ $light-background-body: #fff;
     // text
     --light-color: #{$light-color};
     --dark-color: #{$dark-color};
-    --default-color: var(#{--light-color});
+    --default-color: var(#{--dark-color});
 
     // background of components
     --light-background-component: #{$light-background-component};
     --dark-background-component: #{$dark-background-component};
-    --default-background-component: var(#{--light-background-component});
+    --default-background-component: var(#{--dark-background-component});
 
     // background of cards
     --light-background-day: #{$light-background-day};
     --dark-background-day: #{$dark-background-day};
-    --default-background-day: var(#{--light-background-day});
+    --default-background-day: var(#{--dark-background-day});
 
     // text
     --light-background-body: #{$light-background-body};
     --dark-background-body: #{$dark-background-body};
-    --default-background-body: var(#{--light-background-body});
+    --default-background-body: var(#{--dark-background-body});
 }

@@ -1,13 +1,9 @@
 import React, { useState, createContext, useContext, useEffect } from "react";
 import { storage } from "../storage/storage";
 
-export const ThemeContext = createContext({theme: 'light', changeTheme:(themeToChange: string) => {}})
+export const ThemeContext = createContext({theme: 'dark', changeTheme:(themeToChange: string) => {}})
 
-interface Props {
-    children: React.ReactNode
-}
-
-export const ThemeProvider =  ({ children }: Props) => {
+export const ThemeProvider:React.FC<{children: React.ReactNode}> =  ({ children }) => {
     const [theme, setTheme] = useState(storage.getItem('theme')||'light');
 
     const changeTheme = (themeToChange: string) => {
