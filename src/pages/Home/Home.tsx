@@ -2,20 +2,13 @@ import React from 'react';
 import ThisDay from './components/ThisDay';
 import ThisDayInfo from './components/ThisDayInfo';
 import Forecast from './components/Forecast/Forecast';
-import { useCustomDispatch, useCustomSelector } from '../../hooks/storeHooks';
-// import { fetchWeather } from '../../store/thunks/fetchWeather'
+import {  useCustomSelector } from '../../hooks/storeHooks';
 import { weatherAPI } from '../../services/WeatherService';
 import { CITIES } from '../../types';
+import { storage } from '../../storage/storage';
 
 const Home: React.FC = () => {
-	// const dispatch = useCustomDispatch()
-	// const {weather} = useCustomSelector(state=>state.WeatherSliceReducer)
-	// React.useEffect(()=> {
-	//  dispatch(fetchWeather())
-	// }, [])
-	const selector = useCustomSelector
 	const {activeCity} = useCustomSelector(state=>state.WeatherSliceReducer)
-
 	const { data, isLoading} = weatherAPI.useFetchWeatherDataQuery(activeCity);
 
 	if (isLoading) {
@@ -27,8 +20,8 @@ const Home: React.FC = () => {
 	return (
 		<>
 			<div className='days-wrapper'>
-				<ThisDay weather={weatherArray[0]} city={currentCity} />
-				<ThisDayInfo weather={weatherArray[0]} />
+				<ThisDay weather={storage.getItem('currentWeather')|| weatherArray[0]} city={storage.getItem('city').label||currentCity} />
+				<ThisDayInfo weather={storage.getItem('currentWeather')||weatherArray[0]} />
 			</div>
 			<Forecast />
 		</>

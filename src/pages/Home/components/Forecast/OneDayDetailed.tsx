@@ -1,6 +1,8 @@
 import React from 'react';
 import OneDayDetailedItem from './OneDayDetailedItem';
 import { useCustomSelector } from '../../../../hooks/storeHooks';
+import { Weather } from '../../../../types';
+
 const OneDayDetailed = () => {
 	const { activeDay, isDetailedDayShown } = useCustomSelector(state => state.WeatherSliceReducer);
 
@@ -12,7 +14,7 @@ const OneDayDetailed = () => {
 				<>
 					<div>{new Date(activeDay[0].dt_txt).toString().slice(0, 16)}</div>
 					<ul className='oneDayDetailedWrapper'>
-						{activeDay.map(oneDayDetailedInfo => (
+						{activeDay.map((oneDayDetailedInfo: Weather) => (
 							<OneDayDetailedItem key={oneDayDetailedInfo.dt} weather={oneDayDetailedInfo} />
 						))}
 					</ul>
