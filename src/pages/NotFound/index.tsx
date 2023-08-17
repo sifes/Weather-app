@@ -1,12 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { PATH } from '../../router';
 
 const NotFound = () => {
-  return (
-    <div>
-      cannot find that page <br/>
-      <a href="/">to home</a>
-    </div>
-  )
-}
+	return (
+		<div className='notFound'>
+			Oops! something went wrong
+			<br />
+			<NavLink to={PATH.INDEX} className='logo'>
+				<span>Weather</span>
+			</NavLink>
+		</div>
+	);
+};
 
-export default NotFound
+export default NotFound;

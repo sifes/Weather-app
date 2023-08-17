@@ -1,0 +1,40 @@
+.DayStatistics {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-weight: 500;
+    color: var(--default-color);
+    @media (max-width:480px) {
+    overflow-x:scroll ;
+}
+background-color: var(--default-background-day);
+padding: 32px;
+border-radius: 24px;
+    & .date {
+        font-size: 24px;
+        margin-bottom: 24px;
+        align-self: center;
+    }
+    & .item {
+        padding: 0 40px;
+        gap: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+    }
+    & .info {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        & span {
+            color: $gray;
+        }
+    }
+    & .chart {
+        max-width: 100%;
+    }
+}

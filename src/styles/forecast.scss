@@ -43,14 +43,16 @@
     position: relative;
     display: flex;
     gap: 20px;
-    // flex-wrap: wrap;
-    overflow: scroll;
     align-items: center;
     background-color:var(--default-background-component) ;
     padding: 18px;
     border-radius: 20px 20px 10px 10px;
     box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
     margin-bottom: 30px;
+    white-space: nowrap;
+    @media (max-width:1080px) {
+     overflow-x: scroll;
+    }
 }
 .day {
     cursor: pointer;
