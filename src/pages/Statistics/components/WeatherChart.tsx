@@ -2,16 +2,18 @@ import React from 'react';
 
 import { Radar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 
-type TempProps = { data: { hours: string; temperature: string }[] };
+type TempProps = { data: { hours: string; temperature: string }[], datakey: string };
+type WindProps = { data: { hours: string; wind: number }[], datakey: string };
 
-export const LineChartComponent: React.FC<TempProps> = ({ data }) => {
+
+export const LineChartComponent: React.FC<TempProps | WindProps> = ({ data, datakey }) => {
 	return (
 		<LineChart compact={true} width={600} height={400} data={data}>
 			<XAxis dataKey='hours' />
 			<YAxis />
 			<Tooltip />
 			<Legend />
-			<Line type='monotone' dataKey='temperature' stroke='#8884d8' />
+			<Line type='monotone' dataKey={datakey} stroke='#8884d8' />
 		</LineChart>
 	);
 };
@@ -19,7 +21,7 @@ export const RadarChartComponent: React.FC = () => {
 	const data = [
 		{
 			subject: 'Math',
-			A: 120,
+			A: 130,
 			B: 110,
 			fullMark: 150,
 		},
@@ -56,7 +58,7 @@ export const RadarChartComponent: React.FC = () => {
 	];
 
 	return (
-		<ResponsiveContainer width='100%' height='100%'>
+		<ResponsiveContainer width='100%' minWidth={500} minHeight={400} height='100%'>
 			<RadarChart cx='50%' cy='50%' outerRadius='80%' data={data}>
 				<PolarGrid />
 				<PolarAngleAxis dataKey='subject' />

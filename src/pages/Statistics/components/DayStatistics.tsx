@@ -29,12 +29,12 @@ interface Props {
 }
 
 const DayStatistics: React.FC<Props> = ({ weather }) => {
-	function getData(arr: Weather[]) {
-		const a = arr.map(weather => ({ hours: weather.dt_txt.slice(11, 16), temperature: weather.main.temp.toFixed() }));
-		console.log(a);
-		return a;
+	function getTempData(arr: Weather[]) {
+		return arr.map(weather => ({ hours: weather.dt_txt.slice(11, 16), temperature: weather.main.temp.toFixed() }));
 	}
-	getData(weather);
+	function getWindData(arr: Weather[]) {
+		return arr.map(weather => ({ hours: weather.dt_txt.slice(11, 16), wind: weather.wind.speed }));
+	}
 
 	return (
 		<div className='DayStatistics'>
@@ -52,7 +52,7 @@ const DayStatistics: React.FC<Props> = ({ weather }) => {
 					</li>
 				</ul>
 				<div className='chart'>
-					<LineChartComponent data={getData(weather)} />
+					<LineChartComponent datakey='temperature' data={getTempData(weather)} />
 				</div>
 			</div>
 			<div className='item wind'>
@@ -68,7 +68,7 @@ const DayStatistics: React.FC<Props> = ({ weather }) => {
 					</li>
 				</ul>
 				<div className='chart'>
-					<LineChartComponent data={getData(weather)} />
+					<LineChartComponent datakey='wind' data={getWindData(weather)} />
 				</div>
 			</div>
 			<div className='item common'>

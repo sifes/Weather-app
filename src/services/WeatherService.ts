@@ -24,11 +24,11 @@ const cities: any = {
 
 export const weatherAPI = createApi({
 	reducerPath: 'weatherAPI',
-	baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
+	baseQuery: fetchBaseQuery({ baseUrl: 'https://api.openweathermap.org/data/2.5/forecast' }),
 	endpoints: build => ({
 		fetchWeatherData: build.query({
 			query: city => ({
-				url: `?lat=${cities[city].lat}&lon=${cities[city].lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`,
+				url: `?lat=${cities[city].lat}&lon=${cities[city].lon}&appid=${'461dd59455d209a25fdb42671478b32f'}&units=metric`,
 			}),
 		}),
 	}),

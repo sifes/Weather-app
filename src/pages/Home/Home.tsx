@@ -8,7 +8,10 @@ import { storage } from '../../storage/storage';
 
 const Home: React.FC = () => {
 	const { activeCity } = useCustomSelector(state => state.WeatherSliceReducer);
+	console.log(weatherAPI);
+
 	const { data, isLoading } = weatherAPI.useFetchWeatherDataQuery(activeCity);
+
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
