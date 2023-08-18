@@ -3,6 +3,9 @@ import DayStatistics from './components/DayStatistics';
 import { useCustomSelector } from '../../hooks/storeHooks';
 import { weatherAPI } from '../../services/WeatherService';
 import { storage } from '../../storage/storage';
+import { Weather } from '../../types';
+import { getWindDirect } from '../../utils';
+import { RadarChartComponent } from './components/WeatherChart';
 
 const Statistics: React.FC = () => {
 	const { activeCity } = useCustomSelector(state => state.WeatherSliceReducer);
@@ -11,7 +14,7 @@ const Statistics: React.FC = () => {
 		return <div>Loading...</div>;
 	}
 	const weatherArray = data.list;
-	const currentCity = data.city.name;
+
 	return (
 		<div className='Statistics'>
 			<DayStatistics weather={[...weatherArray].slice(0, 8)} />

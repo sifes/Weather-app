@@ -1,5 +1,6 @@
 import React from 'react';
 import { Weather } from '../../../../types';
+import { getWindDirect } from '../../../../utils';
 const OneDayDetailedItem = ({ weather }: { weather: Weather }) => {
 	return (
 		<li className='item'>
@@ -11,18 +12,7 @@ const OneDayDetailedItem = ({ weather }: { weather: Weather }) => {
 			<div className='wind'>
 				wind speed: {weather.wind.speed} m/s <br />
 				From:{' '}
-				{
-					{
-						0: 'N',
-						1: 'NE',
-						2: 'E',
-						3: 'SE',
-						4: 'S',
-						5: 'SW',
-						6: 'W',
-						7: 'NW',
-					}[Math.round(weather.wind.deg / 45)]
-				}
+				{getWindDirect(weather.wind.deg)}
 			</div>
 		</li>
 	);
