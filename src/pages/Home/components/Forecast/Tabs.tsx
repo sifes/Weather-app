@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { PATH } from '../../../../router';
 
 const Tabs = ({ today, tomorrow }: any) => {
+	const [activeIndex, setActiveIndex] = React.useState(0)
 	const dispatch = useCustomDispatch();
 
 	const items = [
@@ -29,15 +30,18 @@ const Tabs = ({ today, tomorrow }: any) => {
 		<div className='tabs-wrapper'>
 			<div className='tabs'>
 				{items.map(item => (
-					<div onClick={() => dispatch(onTabsClick({ id: item.id, activeDay: item.activeDay }))} key={item.id} className='tab-button'>
+					<button onClick={() => {
+						setActiveIndex(item.id)
+						dispatch(onTabsClick({ id: item.id, activeDay: item.activeDay }))
+					}} key={item.id} className={activeIndex === item.id ? 'tab-button active' : 'tab-button'}>
 						{item.value}
-					</div>
+					</button>
 				))}
 			</div>
 			<NavLink className='link' to={PATH.STATISTICS}>statistics</NavLink>
-			<div onClick={() => dispatch(onCancelClick())} className='tab-cancel'>
+			<button onClick={() => dispatch(onCancelClick())} className='tab-cancel'>
 				Cancel
-			</div>
+			</button>
 		</div>
 	);
 };

@@ -2,6 +2,7 @@ $main-color: #4793FF;
 $gray: #939CB0;
 $white: #fff;
 
+// < variables for dark/light theme >
 $light-color: #000;
 $dark-color: #fff;
 
@@ -14,6 +15,7 @@ $light-background-day: #4793FF33;
 $dark-background-body: #0D1117;
 $light-background-body: #fff;
 
+// </ variables for dark/light theme />
 :root {
     // text
     --light-color: #{$light-color};

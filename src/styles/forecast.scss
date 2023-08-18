@@ -1,10 +1,10 @@
 .tabs-wrapper {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-self: center;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
     gap: 15px;
+    margin-bottom: 30px;
 }
 
 .tabs {
@@ -17,14 +17,16 @@
 }
 
 .tab-button {
-    cursor: pointer;
     padding: 8px 20px;
+
+    font-size: 18px;
     border-radius: 5px;
     background: var(--default-background-component);
     box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
-    font-size: 18px;
     color: var(--default-color);
+    transition: all 0.3s ease-in-out;
 
+    &:hover,
     &.active {
         background: $main-color;
         color: #fff;
@@ -32,27 +34,36 @@
 }
 
 .tab-cancel {
-    cursor: pointer;
+    max-height: 42px;
     padding: 10px 24px;
+
+    font-size: 18px;
     color: var(--default-color);
     border-radius: 5px;
     background: var(--default-background-component);
     box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
-    font-size: 18px;
-    max-height: 42px;
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background: $main-color;
+        color: #fff;
+    }
+
 }
 
 .days {
-    position: relative;
     display: flex;
     gap: 20px;
     align-items: center;
-    background-color: var(--default-background-component);
+
+    position: relative;
     padding: 18px;
+    margin-bottom: 30px;
+
+    background-color: var(--default-background-component);
     border-radius: 20px 20px 10px 10px;
     box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
-    margin-bottom: 30px;
-    white-space: nowrap;
 
     @media (max-width:1080px) {
         overflow-x: scroll;
@@ -60,12 +71,13 @@
 }
 
 .day {
-    cursor: pointer;
-    transition: transform 0.3s;
-    border-radius: 10px;
-    padding: 20px;
     flex: 1 0 auto;
+    padding: 20px;
+
+    border-radius: 10px;
     background: var(--default-background-day);
+    transition: transform 0.3s;
+    cursor: pointer;
 
     & .day-name {
         color: var(--default-color);
@@ -112,11 +124,18 @@
 }
 
 .link {
-    text-decoration: none;
+    padding: 8px 16px;
+
     color: $main-color;
     font-size: 24px;
     text-transform: uppercase;
+    text-decoration: none;
     background: var(--default-background-day);
     border-radius: 10px;
-    padding: 8px 16px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background: $main-color;
+        color: #fff;
+    }
 }

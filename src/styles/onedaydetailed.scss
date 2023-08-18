@@ -1,26 +1,26 @@
 .oneDayDetailed {
+    padding: 20px;
+    color: var(--default-color);
+    background-color: var(--default-background-component);
+    border-radius: 15px;
+    border: 1px solid $gray;
+    text-align: center;
+    overflow-x: scroll;
+
     &Wrapper {
         display: flex;
         gap: 16px;
     }
-    overflow-x: scroll;
-    border-radius: 15px;
-    padding: 20px;
-    background-color: var(--default-background-component);
-    color: var(--default-color);
-    border: 1px solid $gray;
 
-    &Pre {
-        color: var(--default-color);
-    }
     & .item {
+        flex: 1 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 12px;
+
         border-radius: 4px;
         text-align: center;
-        flex: 1 0 auto;
     }
 
     & .image {
@@ -29,23 +29,27 @@
         margin-bottom: 20px;
         padding: 8px;
     }
+
     & .temp {
         font-size: 32px;
-        margin-bottom: 8px;
         line-height: 50%;
+        margin-bottom: 8px;
     }
+
     & .time {
         color: $gray;
-        margin-bottom: 10px;
         font-size: 20px;
+        margin-bottom: 10px;
     }
+
     & .desc {
-        // flex: 1 auto;
         margin-bottom: 8px;
     }
+
     & .wind {
         color: $gray;
     }
+
     & .pop {
         margin-bottom: 6px;
         color: $gray;

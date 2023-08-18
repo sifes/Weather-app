@@ -17,7 +17,7 @@ const Home: React.FC = () => {
 	const currentCity = data.city.name;
 	return (
 		<>
-			<div className='days-wrapper'>
+			<div className='home-wrapper'>
 				<ThisDay weather={storage.getItem('currentWeather') ? storage.getItem('currentWeather') : weatherArray[0]} city={storage.getItem('city') ? storage.getItem('city').label : currentCity} />
 				<ThisDayInfo weather={storage.getItem('currentWeather') ? storage.getItem('currentWeather') : weatherArray[0]} />
 			</div>

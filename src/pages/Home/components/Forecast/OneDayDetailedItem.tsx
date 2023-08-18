@@ -1,4 +1,3 @@
-import React from 'react';
 import { Weather } from '../../../../types';
 import { getWindDirect } from '../../../../utils';
 const OneDayDetailedItem = ({ weather }: { weather: Weather }) => {
@@ -19,6 +18,3 @@ const OneDayDetailedItem = ({ weather }: { weather: Weather }) => {
 };
 
 export default OneDayDetailedItem;
-{
-	/* <div className='time'>{(new Date(weather.dt_txt)).toString().split('').slice(0,10)}</div> */
-}

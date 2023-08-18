@@ -1,17 +1,17 @@
 .notFound {
-    text-align: center;
     display: flex;
+    text-align: center;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     margin: 20%;
-    font-size: 32px;
     gap: 32px;
+
+    font-size: 32px;
     color: var(--default-color);
+
     & a {
         text-decoration: none;
-         font-size: 64px;
-
-
+        font-size: 64px;
     }
 }
