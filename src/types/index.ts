@@ -43,7 +43,7 @@ export enum VALUESTOGET {
 	PRESSURE = 'pressure',
 	HUMIDITY = 'humidity',
 }
-export interface CityOption {
+export interface ICityOption {
 	value: string;
 	label: string;
 }

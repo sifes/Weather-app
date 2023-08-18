@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { PATH } from '../../router';
 
-const NotFound = () => {
+const NotFound: React.FC = () => {
 	return (
 		<div className='notFound'>
 			Oops! something went wrong

@@ -56,5 +56,4 @@ export const WeatherSlice = createSlice({
 });
 
 export const { onTabsClick, onDayClick, onCancelClick, onSelectClick } = WeatherSlice.actions;
-
 export default WeatherSlice.reducer;

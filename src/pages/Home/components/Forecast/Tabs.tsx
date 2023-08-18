@@ -3,12 +3,18 @@ import { onCancelClick, onTabsClick } from '../../../../store/slices/WeatherSlic
 import { useCustomDispatch } from '../../../../hooks/storeHooks';
 import { NavLink } from 'react-router-dom';
 import { PATH } from '../../../../router';
+import { Weather } from '../../../../types';
 
-const Tabs = ({ today, tomorrow }: any) => {
-	const [activeIndex, setActiveIndex] = React.useState(0)
+type Props = {
+	today: Weather[],
+	tomorrow: Weather[]
+}
+
+const Tabs: React.FC<Props> = ({ today, tomorrow }) => {
+	const [activeIndex, setActiveIndex] = React.useState(0) // can i do this or should i do this in rtk?
 	const dispatch = useCustomDispatch();
 
-	const items = [
+	const buttons = [
 		{
 			id: 0,
 			value: 'today',
@@ -29,12 +35,12 @@ const Tabs = ({ today, tomorrow }: any) => {
 	return (
 		<div className='tabs-wrapper'>
 			<div className='tabs'>
-				{items.map(item => (
+				{buttons.map(button => (
 					<button onClick={() => {
-						setActiveIndex(item.id)
-						dispatch(onTabsClick({ id: item.id, activeDay: item.activeDay }))
-					}} key={item.id} className={activeIndex === item.id ? 'tab-button active' : 'tab-button'}>
-						{item.value}
+						setActiveIndex(button.id)
+						dispatch(onTabsClick({ id: button.id, activeDay: button.activeDay }))
+					}} key={button.id} className={activeIndex === button.id ? 'tab-button active' : 'tab-button'}>
+						{button.value}
 					</button>
 				))}
 			</div>

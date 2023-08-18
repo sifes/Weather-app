@@ -1,9 +1,8 @@
-import React from 'react';
 import OneDayDetailedItem from './OneDayDetailedItem';
 import { useCustomSelector } from '../../../../hooks/storeHooks';
 import { Weather } from '../../../../types';
 
-const OneDayDetailed = () => {
+const OneDayDetailed: React.FC = () => {
 	const { activeDay, isDetailedDayShown } = useCustomSelector(state => state.WeatherSliceReducer);
 
 	return (

@@ -1,5 +1,6 @@
 import { VALUESTOGET, Weather } from "../types";
 
+// <--- HELPER-FUNCTIONS ---> //
 export function getFullDate(timestamp: number): string {
 	const months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -17,7 +18,7 @@ export function getWindDirect(windAngle: number): string {
 	const directions: string[] = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW',]
 	return directions[Math.round(windAngle / 45)] || directions[0] // if wind degree is greater than 337.5 we get index 8, what means that we need 'N'
 }
-
+// </--- HELPER-FUNCTIONS ---/> //
 
 // <--- GET DATA FOR CHARTS ---> //
 export function getTempData(arr: Weather[]) {

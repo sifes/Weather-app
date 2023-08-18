@@ -33,3 +33,4 @@ export const weatherAPI = createApi({
 		}),
 	}),
 });
+// key openWeather = '461dd59455d209a25fdb42671478b32f'    ///// was in env.local

@@ -9,9 +9,9 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-    <ThemeProvider>
-      <Provider store={store}><App /></Provider>
-    </ThemeProvider>
+  <ThemeProvider>
+    <Provider store={store}><App /></Provider>
+  </ThemeProvider>
 );
 
 

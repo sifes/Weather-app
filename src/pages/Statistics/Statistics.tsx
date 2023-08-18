@@ -2,17 +2,15 @@ import React from 'react';
 import DayStatistics from './components/DayStatistics';
 import { useCustomSelector } from '../../hooks/storeHooks';
 import { weatherAPI } from '../../services/WeatherService';
-import { storage } from '../../storage/storage';
-import { Weather } from '../../types';
-import { getWindDirect } from '../../utils';
-import { RadarChartComponent } from './components/WeatherChart';
 
 const Statistics: React.FC = () => {
 	const { activeCity } = useCustomSelector(state => state.WeatherSliceReducer);
 	const { data, isLoading } = weatherAPI.useFetchWeatherDataQuery(activeCity);
+
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
+
 	const weatherArray = data.list;
 
 	return (

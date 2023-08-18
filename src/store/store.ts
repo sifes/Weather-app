@@ -1,7 +1,7 @@
 import WeatherSliceReducer from './slices/WeatherSlice';
+import { weatherAPI } from '../services/WeatherService';
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import { weatherAPI } from '../services/WeatherService';
 
 const rootReducer = combineReducers({
 	WeatherSliceReducer,

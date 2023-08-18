@@ -3,13 +3,7 @@ import { LineChartComponent, RadarChartComponent } from './WeatherChart';
 import { VALUESTOGET, Weather } from '../../../types';
 import { getFullDate, getTempData, getWindSpeedData, getWindDirectData, getMinValue, getAvgValue, getMaxValue, getCloudsData } from '../../../utils';
 
-interface Props {
-	weather: Weather[];
-}
-
-const DayStatistics: React.FC<Props> = ({ weather }) => {
-
-
+const DayStatistics: React.FC<{ weather: Weather[] }> = ({ weather }) => {
 	return (
 		<div className='DayStatistics'>
 			<div className='date'>{getFullDate(weather[0].dt)}</div>

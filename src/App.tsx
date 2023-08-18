@@ -1,12 +1,12 @@
 import React from 'react';
 import "./styles/index.scss";
-import {RouterProvider} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { router } from './router';
 
 
 function App() {
   return (
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   );
 }
 

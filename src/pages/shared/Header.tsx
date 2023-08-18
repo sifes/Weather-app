@@ -7,7 +7,15 @@ import { storage } from '../../storage/storage';
 import { weatherAPI } from '../../services/WeatherService';
 import { NavLink } from 'react-router-dom';
 import { PATH } from '../../router';
-import { CITIES, CityOption } from '../../types';
+import { CITIES, ICityOption } from '../../types';
+
+const options: ICityOption[] = [
+	{ value: CITIES.LONDON, label: CITIES.LONDON },
+	{ value: CITIES.KYIV, label: CITIES.KYIV },
+	{ value: CITIES.PARIS, label: CITIES.PARIS },
+	{ value: CITIES.ROME, label: CITIES.ROME },
+	{ value: CITIES.TOKYO, label: CITIES.TOKYO },
+];
 
 const Header: React.FC = () => {
 	const { activeCity } = useCustomSelector(state => state.WeatherSliceReducer);
@@ -19,13 +27,6 @@ const Header: React.FC = () => {
 		return <div>Loading...</div>;
 	}
 
-	const options: CityOption[] = [
-		{ value: CITIES.LONDON, label: CITIES.LONDON },
-		{ value: CITIES.KYIV, label: CITIES.KYIV },
-		{ value: CITIES.PARIS, label: CITIES.PARIS },
-		{ value: CITIES.ROME, label: CITIES.ROME },
-		{ value: CITIES.TOKYO, label: CITIES.TOKYO },
-	];
 
 	const colorStyles = {
 		control: (styles: any, state: any) => ({

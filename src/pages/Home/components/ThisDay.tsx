@@ -11,13 +11,13 @@ const ThisDay: React.FC<Props> = ({ weather, city }) => {
 		<div className='thisDay'>
 			<div className='thisDay-header'>
 				<div className='thisDay-info'>
-					<span>{Math.round(weather.main.temp)}° </span>
+					<span>{Math.round(weather.main.temp)}°</span>
 					<p>Today</p>
 				</div>
-				<img src={`assets/images/weather/${weather.weather[0].icon}.png`} alt='sun' />
+				<img src={`assets/images/weather/${weather.weather[0].icon}.png`} alt={weather.weather[0].description} />
 			</div>
 			<div className='thisDay-time'>
-				Time: <span>{weather.dt_txt.split(' ')[1].split(':')[0] + ':00'}</span>
+				Time: <span>{weather.dt_txt.slice(0, 12)}</span>
 			</div>
 			<div className='thisDay-city'>
 				city: <span>{city}</span>
