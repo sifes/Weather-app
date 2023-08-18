@@ -13,12 +13,13 @@ export function getFullDate(timestamp: number): string {
 
 	return `${dayOfWeek} ${day} ${month}, ${year}`;
 }
-
 export function getWindDirect(windAngle: number): string {
 	const directions: string[] = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW',]
 	return directions[Math.round(windAngle / 45)] || directions[0] // if wind degree is greater than 337.5 we get index 8, what means that we need 'N'
 }
 
+
+// <--- GET DATA FOR CHARTS ---> //
 export function getTempData(arr: Weather[]) {
 	return arr.map(weather => ({ hours: weather.dt_txt.slice(11, 16), temperature: weather.main.temp.toFixed() }));
 }
@@ -73,6 +74,21 @@ export function getWindDirectData(arr: Weather[], fullmark: number) {
 	}, initialData)
 	return a
 }
+export function getCloudsData(arr: Weather[], fullmark: number) {
+
+	const a = arr.map((item) => ({
+		hours: item.dt_txt.slice(11, 16),
+		a: item.clouds.all,
+		fullmark
+	}))
+	console.log(a);
+
+	return a
+}
+// </--- GET DATA FOR CHARTS ---/> //
+
+
+// <--- AVERAGE, MINIMUM, MAXIMUM FUNCTIONS ---> //
 export function getMinValue(arr: Weather[], whatToGet: string) {
 	switch (whatToGet) {
 		case VALUESTOGET.TEMP:
@@ -128,3 +144,4 @@ export function getAvgValue(arr: Weather[], whatToGet: string) {
 			break;
 	}
 }
+// </--- AVERAGE, MINIMUM, MAXIMUM FUNCTIONS ---/> //

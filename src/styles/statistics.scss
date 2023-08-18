@@ -28,6 +28,14 @@
         font-size: 18px;
     }
 
+    & .info-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 32px;
+        text-align: center;
+    }
+
     & .info {
         display: flex;
         flex-direction: column;

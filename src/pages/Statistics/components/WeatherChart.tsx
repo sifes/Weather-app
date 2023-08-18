@@ -4,7 +4,8 @@ import { Radar, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContai
 
 type TempProps = { data: { hours: string; temperature: string }[], datakey: string };
 type WindSpeedProps = { data: { hours: string; wind: number }[], datakey: string };
-type WindDirectProps = { data: { windDirect: string, a: number }[] };
+type WindDirectProps = { data: { windDirect: string, a: number }[], datakey: string };
+type CloudsProps = { data: { hours: string, a: number }[], datakey: string };
 
 
 export const LineChartComponent: React.FC<TempProps | WindSpeedProps> = ({ data, datakey }) => {
@@ -18,14 +19,14 @@ export const LineChartComponent: React.FC<TempProps | WindSpeedProps> = ({ data,
 		</LineChart>
 	);
 };
-export const RadarChartComponent: React.FC<WindDirectProps> = ({ data }) => {
+export const RadarChartComponent: React.FC<WindDirectProps | CloudsProps> = ({ data, datakey }) => {
 	return (
 		<ResponsiveContainer width='100%' minWidth={500} minHeight={400} height='100%'>
 			<RadarChart cx='50%' cy='50%' outerRadius='80%' data={data}>
 				<PolarGrid />
-				<PolarAngleAxis dataKey='windDirect' />
+				<PolarAngleAxis dataKey={datakey} />
 				<PolarRadiusAxis />
-				<Radar name='Wind' dataKey='a' stroke='#8884d8' fill='#8884d8' fillOpacity={0.6} />
+				<Radar name={datakey} dataKey='a' stroke='#8884d8' fill='#8884d8' fillOpacity={0.6} />
 			</RadarChart>
 		</ResponsiveContainer>
 	);
