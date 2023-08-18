@@ -1,6 +1,8 @@
 import React from 'react';
 import { onCancelClick, onTabsClick } from '../../../../store/slices/WeatherSlice';
 import { useCustomDispatch } from '../../../../hooks/storeHooks';
+import { NavLink } from 'react-router-dom';
+import { PATH } from '../../../../router';
 
 const Tabs = ({ today, tomorrow }: any) => {
 	const dispatch = useCustomDispatch();
@@ -32,6 +34,7 @@ const Tabs = ({ today, tomorrow }: any) => {
 					</div>
 				))}
 			</div>
+			<NavLink className='link' to={PATH.STATISTICS}>statistics</NavLink>
 			<div onClick={() => dispatch(onCancelClick())} className='tab-cancel'>
 				Cancel
 			</div>

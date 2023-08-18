@@ -16,9 +16,13 @@ const Statistics: React.FC = () => {
 	const weatherArray = data.list;
 
 	return (
-		<div className='Statistics'>
+		<>
 			<DayStatistics weather={[...weatherArray].slice(0, 8)} />
-		</div>
+			<DayStatistics weather={[...weatherArray].slice(8, 16)} />
+			<DayStatistics weather={[...weatherArray].slice(16, 24)} />
+			<DayStatistics weather={[...weatherArray].slice(24, 32)} />
+			<DayStatistics weather={[...weatherArray].slice(32, 40)} />
+		</>
 	);
 };
 

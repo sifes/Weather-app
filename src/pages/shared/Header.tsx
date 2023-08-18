@@ -48,7 +48,6 @@ const Header: React.FC = () => {
 				<img src='assets/images/logo.svg' alt='logo' />
 				<span>Weather</span>
 			</NavLink>
-			<NavLink to={PATH.STATISTICS}>statistics</NavLink>
 			<div className='select'>
 				<img onClick={() => theme.changeTheme(theme.theme === 'light' ? 'dark' : 'light')} src='assets/images/drop.svg' alt='drop' />
 				<Select

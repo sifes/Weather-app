@@ -10,6 +10,7 @@
 .tabs {
     display: flex;
     gap: 15px;
+
     @media (max-width:480px) {
         flex-direction: column;
     }
@@ -23,11 +24,13 @@
     box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
     font-size: 18px;
     color: var(--default-color);
+
     &.active {
-         background: $main-color;
-         color: #fff;
+        background: $main-color;
+        color: #fff;
     }
 }
+
 .tab-cancel {
     cursor: pointer;
     padding: 10px 24px;
@@ -44,57 +47,76 @@
     display: flex;
     gap: 20px;
     align-items: center;
-    background-color:var(--default-background-component) ;
+    background-color: var(--default-background-component);
     padding: 18px;
     border-radius: 20px 20px 10px 10px;
     box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
     margin-bottom: 30px;
     white-space: nowrap;
+
     @media (max-width:1080px) {
-     overflow-x: scroll;
+        overflow-x: scroll;
     }
 }
+
 .day {
     cursor: pointer;
     transition: transform 0.3s;
     border-radius: 10px;
     padding: 20px;
-    flex:1 0 auto;
+    flex: 1 0 auto;
     background: var(--default-background-day);
+
     & .day-name {
         color: var(--default-color);
         font-size: 18px;
         font-weight: 500;
         margin-bottom: 10px;
     }
+
     & .day-date {
         color: #939CB0;
-        font-size: 14px;    
+        font-size: 14px;
         margin-bottom: 12px;
-     }
+    }
+
     & .day-img {
         width: 144px;
-        height: 144px; 
-        padding: 12px;  
+        height: 144px;
+        padding: 12px;
         flex-shrink: 0;
-     }
-    & .day-tempDay { 
+    }
+
+    & .day-tempDay {
         color: var(--default-color);
         font-size: 18px;
         font-weight: 500;
         margin-bottom: 6px;
     }
+
     & .day-tempNight {
         color: #939CB0;
         font-size: 13px;
         margin-bottom: 6px;
 
-     }
+    }
+
     & .day-info {
         color: #939CB0;
         font-size: 13px;
-     }
+    }
+
     &:hover {
         transform: scale(1.02);
     }
+}
+
+.link {
+    text-decoration: none;
+    color: $main-color;
+    font-size: 24px;
+    text-transform: uppercase;
+    background: var(--default-background-day);
+    border-radius: 10px;
+    padding: 8px 16px;
 }

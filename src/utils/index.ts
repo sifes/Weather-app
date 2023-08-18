@@ -81,8 +81,6 @@ export function getCloudsData(arr: Weather[], fullmark: number) {
 		a: item.clouds.all,
 		fullmark
 	}))
-	console.log(a);
-
 	return a
 }
 // </--- GET DATA FOR CHARTS ---/> //
