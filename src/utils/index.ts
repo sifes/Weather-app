@@ -1,4 +1,4 @@
-import { Weather } from "../types";
+import { VALUESTOGET, Weather } from "../types";
 
 export function getFullDate(timestamp: number): string {
 	const months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -25,54 +25,46 @@ export function getTempData(arr: Weather[]) {
 export function getWindSpeedData(arr: Weather[]) {
 	return arr.map(weather => ({ hours: weather.dt_txt.slice(11, 16), wind: weather.wind.speed }));
 }
-export function getWindDirectData(arr: Weather[]) {
+export function getWindDirectData(arr: Weather[], fullmark: number) {
 	const initialData = [{
 		windDirect: 'N',
-		a: 0,
-		b: 3,
-		fullmark: 40
+		a: 1,
+		fullmark
 	},
 	{
 		windDirect: 'NE',
-		a: 0,
-		b: 3,
-		fullmark: 40
+		a: 1,
+		fullmark
 	},
 	{
 		windDirect: 'E',
-		a: 0,
-		b: 3,
-		fullmark: 40
+		a: 1,
+		fullmark
 	},
 	{
 		windDirect: 'SE',
-		a: 0,
-		b: 3,
-		fullmark: 40
+		a: 1,
+		fullmark
 	},
 	{
 		windDirect: 'S',
-		a: 0,
-		b: 3,
-		fullmark: 40
+		a: 1,
+		fullmark
 	},
 	{
 		windDirect: 'SW',
-		a: 0,
-		b: 3,
-		fullmark: 40
+		a: 1,
+		fullmark
 	},
 	{
 		windDirect: 'W',
-		a: 0,
-		b: 3,
-		fullmark: 40
+		a: 1,
+		fullmark
 	},
 	{
 		windDirect: 'NW',
-		a: 0,
-		b: 3,
-		fullmark: 40
+		a: 1,
+		fullmark
 	},
 	]
 	const a = arr.reduce((acum, curr) => {
@@ -80,4 +72,59 @@ export function getWindDirectData(arr: Weather[]) {
 		return acum
 	}, initialData)
 	return a
+}
+export function getMinValue(arr: Weather[], whatToGet: string) {
+	switch (whatToGet) {
+		case VALUESTOGET.TEMP:
+			return arr.reduce((acum, curr) => acum.main.temp > curr.main.temp ? curr : acum)
+		case VALUESTOGET.WIND_SPEED:
+			return arr.reduce((acum, curr) => acum.wind.speed > curr.wind.speed ? curr : acum)
+		case VALUESTOGET.PRESSURE:
+			return arr.reduce((acum, curr) => acum.main.pressure > curr.main.pressure ? curr : acum)
+		case VALUESTOGET.HUMIDITY:
+			return arr.reduce((acum, curr) => acum.main.humidity > curr.main.humidity ? curr : acum)
+		default:
+			break;
+	}
+	// switch (whatToGet) {
+	// 	case VALUESTOGET.TEMP:
+	// 		return arr.reduce((acum, curr) => acum.temp < curr.main.temp ? { temp: curr.main.temp, time: curr.dt_txt } : acum, { temp: 0, time: '' })
+	// 	case VALUESTOGET.WIND_SPEED:
+	// 		return arr.reduce((acum, curr) => acum.windSpeed < curr.wind.speed ? { windSpeed: curr.wind.speed, time: curr.dt_txt } : acum, { windSpeed: 0, time: '' })
+	// 	case VALUESTOGET.PRESSURE:
+	// 		return arr.reduce((acum, curr) => acum.pressure < curr.main.pressure ? { pressure: curr.main.pressure, time: curr.dt_txt } : acum, { pressure: 0, time: '' })
+	// 	case VALUESTOGET.HUMIDITY:
+	// 		return arr.reduce((acum, curr) => acum.humidity < curr.main.temp ? { humidity: curr.main.temp, time: curr.dt_txt } : acum, { humidity: 0, time: '' })
+	// 	default:
+	// 		return arr[0]
+	// } getting error 'dont have key "temp" on type...'  dunno why
+}
+export function getMaxValue(arr: Weather[], whatToGet: string) {
+	switch (whatToGet) {
+		case VALUESTOGET.TEMP:
+			return arr.reduce((acum, curr) => acum.main.temp < curr.main.temp ? curr : acum)
+		case VALUESTOGET.WIND_SPEED:
+			return arr.reduce((acum, curr) => acum.wind.speed < curr.wind.speed ? curr : acum)
+		case VALUESTOGET.PRESSURE:
+			return arr.reduce((acum, curr) => acum.main.pressure < curr.main.pressure ? curr : acum)
+		case VALUESTOGET.HUMIDITY:
+			return arr.reduce((acum, curr) => acum.main.humidity < curr.main.humidity ? curr : acum)
+		default:
+			break;
+	}
+
+}
+export function getAvgValue(arr: Weather[], whatToGet: string) {
+	switch (whatToGet) {
+		case VALUESTOGET.TEMP:
+			return (arr.reduce((acum, curr) => acum + curr.main.temp, 0) / arr.length).toFixed(2)
+		case VALUESTOGET.WIND_SPEED:
+			return (arr.reduce((acum, curr) => acum + curr.wind.speed, 0) / arr.length).toFixed(2)
+		case VALUESTOGET.PRESSURE:
+			return (arr.reduce((acum, curr) => acum + curr.main.pressure, 0) / arr.length).toFixed(2)
+		case VALUESTOGET.HUMIDITY:
+			return (arr.reduce((acum, curr) => acum + curr.main.humidity, 0) / arr.length).toFixed(2)
+		default:
+			break;
+	}
 }
