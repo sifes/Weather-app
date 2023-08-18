@@ -36,12 +36,21 @@
         font-weight: 400;
         margin-bottom: 20px;
 
-        & span {
+        & .value {
+            font-weight: 500;
+            font-size: 22px;
+        }
+
+        & .time {
             color: $gray;
         }
     }
 
     & .chart {
         max-width: 100%;
+
+        & p {
+            text-align: center;
+        }
     }
 }

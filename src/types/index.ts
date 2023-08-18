@@ -37,6 +37,12 @@ export enum CITIES {
 	ROME = 'Rome',
 	TOKYO = 'Tokyo',
 }
+export enum VALUESTOGET {
+	TEMP = 'temp',
+	WIND_SPEED = 'windSpeed',
+	PRESSURE = 'pressure',
+	HUMIDITY = 'humidity',
+}
 export interface CityOption {
 	value: string;
 	label: string;

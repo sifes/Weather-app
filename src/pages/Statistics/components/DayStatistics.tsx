@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChartComponent, RadarChartComponent } from './WeatherChart';
-import { Weather } from '../../../types';
-import { getFullDate, getTempData, getWindSpeedData, getWindDirectData } from '../../../utils';
+import { VALUESTOGET, Weather } from '../../../types';
+import { getFullDate, getTempData, getWindSpeedData, getWindDirectData, getMinValue, getAvgValue, getMaxValue } from '../../../utils';
 
 interface Props {
 	weather: Weather[];
@@ -10,19 +10,20 @@ interface Props {
 const DayStatistics: React.FC<Props> = ({ weather }) => {
 
 
+	console.log(getMinValue(weather, VALUESTOGET.TEMP));
 	return (
 		<div className='DayStatistics'>
 			<div className='date'>{getFullDate(weather[0].dt)}</div>
 			<div className='item temp'>
 				<ul className='info'>
 					<li>
-						Max temp: +28 <span>(was in 15:00)</span>{' '}
+						Max temp: <span className='value'>+{getMaxValue(weather, VALUESTOGET.TEMP)?.main.temp}</span> <span> {getMaxValue(weather, VALUESTOGET.TEMP)?.dt_txt.slice(11, 16)}</span>{' '}
 					</li>
 					<li>
-						min temp: +12 <span>(was in 15:00)</span>{' '}
+						min temp: <span className='value'>+{getMinValue(weather, VALUESTOGET.TEMP)?.main.temp}</span> <span>{getMinValue(weather, VALUESTOGET.TEMP)?.dt_txt.slice(11, 16)}</span>{' '}
 					</li>
 					<li>
-						avg temp: +20 <span>(was in 15:00)</span>{' '}
+						avg temp: <span className='value'>+{getAvgValue(weather, VALUESTOGET.TEMP)}</span>
 					</li>
 				</ul>
 				<div className='chart'>
@@ -32,13 +33,13 @@ const DayStatistics: React.FC<Props> = ({ weather }) => {
 			<div className='item wind'>
 				<ul className='info'>
 					<li>
-						Max wind speed: 4 m/s <span>(was in 15:00)</span>
+						Max wind speed: <span className='value'>{getMaxValue(weather, VALUESTOGET.WIND_SPEED)?.wind.speed}</span> <span className='time'> {getMaxValue(weather, VALUESTOGET.WIND_SPEED)?.dt_txt.slice(11, 16)}</span>
 					</li>
 					<li>
-						min wind speed: 2 m/s <span>(was in 15:00)</span>
+						min wind speed: <span className='value'>{getMinValue(weather, VALUESTOGET.WIND_SPEED)?.wind.speed}</span> <span> {getMinValue(weather, VALUESTOGET.WIND_SPEED)?.dt_txt.slice(11, 16)}</span>
 					</li>
 					<li>
-						avg wind speed: 3 m/s <span>(was in 15:00)</span>
+						avg wind speed: <span className='value'>{getAvgValue(weather, VALUESTOGET.WIND_SPEED)}</span>
 					</li>
 				</ul>
 				<div className='chart'>
@@ -48,35 +49,27 @@ const DayStatistics: React.FC<Props> = ({ weather }) => {
 			<div className='item common'>
 				<ul className='info'>
 					<li>
-						Max pressure: 1000 <span>(was in 15:00)</span>
+						Max pressure: <span className='value'>{getMaxValue(weather, VALUESTOGET.PRESSURE)?.main.pressure}</span> <span className='time'> {getMaxValue(weather, VALUESTOGET.PRESSURE)?.dt_txt.slice(11, 16)}</span>
 					</li>
 					<li>
-						min pressure: 990 <span>(was in 15:00)</span>
+						min pressure: <span className='value'>{getMinValue(weather, VALUESTOGET.PRESSURE)?.main.pressure}</span> <span className='time'> {getMinValue(weather, VALUESTOGET.PRESSURE)?.dt_txt.slice(11, 16)}</span>
 					</li>
 					<li>
-						avg pressure: 995 <span>(was in 15:00)</span>
+						avg pressure: <span className='value'>{getAvgValue(weather, VALUESTOGET.PRESSURE)}</span>
 					</li>
 					<li>
-						Max humidity: 57 <span>(was in 15:00)</span>
+						Max humidity: <span className='value'>{getMaxValue(weather, VALUESTOGET.HUMIDITY)?.main.humidity}</span> <span className='time'> {getMaxValue(weather, VALUESTOGET.HUMIDITY)?.dt_txt.slice(11, 16)}</span>
 					</li>
 					<li>
-						min humidity: 49 <span>(was in 15:00)</span>
+						min humidity: <span className='value'>{getMinValue(weather, VALUESTOGET.HUMIDITY)?.main.humidity}</span> <span className='time'> {getMinValue(weather, VALUESTOGET.HUMIDITY)?.dt_txt.slice(11, 16)}</span>
 					</li>
 					<li>
-						avg humidity: 53 <span>(was in 15:00)</span>
-					</li>
-					<li>
-						Max temp: +28 <span>(was in 15:00)</span>
-					</li>
-					<li>
-						min temp: +12 <span>(was in 15:00)</span>
-					</li>
-					<li>
-						avg temp: +20 <span>(was in 15:00)</span>
+						avg humidity: <span className='value'>{getAvgValue(weather, VALUESTOGET.HUMIDITY)}</span>
 					</li>
 				</ul>
 				<div className='chart'>
-					<RadarChartComponent data={getWindDirectData(weather)} />
+					<p>Wind rose:</p>
+					<RadarChartComponent data={getWindDirectData(weather, 8)} />
 				</div>
 			</div>
 		</div>
