@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 import useTheme from '../../hooks/useTheme';
-import { useCustomDispatch, useCustomSelector } from '../../hooks/storeHooks';
+import { useCustomDispatch, useWeatherSelector } from '../../hooks/storeHooks';
 import { onSelectClick } from '../../store/slices/WeatherSlice';
 import { storage } from '../../storage/storage';
 import { weatherAPI } from '../../services/WeatherService';
@@ -18,7 +18,7 @@ const options: ICityOption[] = [
 ];
 
 const Header: React.FC = () => {
-	const { activeCity } = useCustomSelector(state => state.WeatherSliceReducer);
+	const { activeCity } = useWeatherSelector();
 	const { data, isLoading } = weatherAPI.useFetchWeatherDataQuery(activeCity);
 	const dispatch = useCustomDispatch();
 	const theme = useTheme();
@@ -26,7 +26,6 @@ const Header: React.FC = () => {
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
-
 
 	const colorStyles = {
 		control: (styles: any, state: any) => ({

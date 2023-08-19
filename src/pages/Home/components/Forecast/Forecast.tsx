@@ -1,13 +1,13 @@
 import Tabs from './Tabs'
 import Days from './Days'
 import OneDayDetailed from './OneDayDetailed'
-import { useCustomSelector } from '../../../../hooks/storeHooks'
+import { useWeatherSelector } from '../../../../hooks/storeHooks'
 import { weatherAPI } from '../../../../services/WeatherService'
 import { CITIES, Weather } from '../../../../types'
 
 const Forecast: React.FC = () => {
   const { data, isLoading } = weatherAPI.useFetchWeatherDataQuery(CITIES.LONDON);
-  const { isDaysShown } = useCustomSelector(state => state.WeatherSliceReducer)
+  const { isDaysShown } = useWeatherSelector()
 
   if (isLoading) {
     return <div>Loading...</div>;

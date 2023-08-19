@@ -1,8 +1,5 @@
 import React from 'react'
-
-export interface IdayInfo {
-  label: string, info: string, img: string
-}
+import { IdayInfo } from '../../../types'
 
 const ThisDayInfoItem: React.FC<IdayInfo> = ({ label, info, img }) => {
   return (

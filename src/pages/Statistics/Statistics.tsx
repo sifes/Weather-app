@@ -1,10 +1,10 @@
 import React from 'react';
 import DayStatistics from './components/DayStatistics';
-import { useCustomSelector } from '../../hooks/storeHooks';
+import { useWeatherSelector } from '../../hooks/storeHooks';
 import { weatherAPI } from '../../services/WeatherService';
 
 const Statistics: React.FC = () => {
-	const { activeCity } = useCustomSelector(state => state.WeatherSliceReducer);
+	const { activeCity } = useWeatherSelector();
 	const { data, isLoading } = weatherAPI.useFetchWeatherDataQuery(activeCity);
 
 	if (isLoading) {

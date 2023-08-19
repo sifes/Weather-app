@@ -1,3 +1,4 @@
+// <--- WEATHER ---> //
 export type Weather = {
 	main: Main;
 	weather: WeatherInWeather;
@@ -29,6 +30,17 @@ export type Wind = {
 	speed: number;
 	deg: number;
 };
+// </--- WEATHER ---/> //
+
+export interface IdayInfo {
+	label: string, info: string, img: string
+}
+
+export interface ICityOption {
+	value: string;
+	label: string;
+}
+
 
 export enum CITIES {
 	LONDON = 'London',
@@ -42,8 +54,4 @@ export enum VALUESTOGET {
 	WIND_SPEED = 'windSpeed',
 	PRESSURE = 'pressure',
 	HUMIDITY = 'humidity',
-}
-export interface ICityOption {
-	value: string;
-	label: string;
 }

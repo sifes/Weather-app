@@ -18,6 +18,13 @@ export function getWindDirect(windAngle: number): string {
 	const directions: string[] = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW',]
 	return directions[Math.round(windAngle / 45)] || directions[0] // if wind degree is greater than 337.5 we get index 8, what means that we need 'N'
 }
+export function getDate(dateText: string) {
+	const date = (new Date(dateText)).toString().split(' ')
+	return `${date[1]} ${date[2]} ${date[4].slice(0, 5)}`
+}
+export function getWeekDay(dateText: string) {
+	return new Date(dateText).toString().split(' ')[0]
+}
 // </--- HELPER-FUNCTIONS ---/> //
 
 // <--- GET DATA FOR CHARTS ---> //
