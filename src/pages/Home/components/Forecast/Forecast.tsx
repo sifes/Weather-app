@@ -1,12 +1,13 @@
 import Tabs from './Tabs'
 import Days from './Days'
 import OneDayDetailed from './OneDayDetailed'
-import { useWeatherSelector } from '../../../../hooks/storeHooks'
-import { weatherAPI } from '../../../../services/WeatherService'
-import { CITIES, Weather } from '../../../../types'
+import { useSelectSelector, useWeatherSelector } from '../../../../hooks/storeHooks'
+import { Weather } from '../../../../types'
+import { useFetchWeather } from '../../../../hooks/useFetchWeather'
 
 const Forecast: React.FC = () => {
-  const { data, isLoading } = weatherAPI.useFetchWeatherDataQuery(CITIES.LONDON);
+  const { activeCity } = useSelectSelector();
+  const { data, isLoading } = useFetchWeather(activeCity)
   const { isDaysShown } = useWeatherSelector()
 
   if (isLoading) {

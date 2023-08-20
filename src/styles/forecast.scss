@@ -3,16 +3,17 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-self: center;
-    gap: 15px;
+    gap: 10px;
     margin-bottom: 30px;
 }
 
 .tabs {
     display: flex;
-    gap: 15px;
+    gap: 14px;
 
-    @media (max-width:480px) {
+    @media (max-width:490px) {
         flex-direction: column;
+        gap: 10px;
     }
 }
 
@@ -25,16 +26,22 @@
     box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
     color: var(--default-color);
     transition: all 0.3s ease-in-out;
+    flex-shrink: 0;
+
 
     &:hover,
     &.active {
         background: $main-color;
         color: #fff;
     }
+
+    @media (max-width:490px) {
+        padding: 6px 18px;
+        font-size: 18px;
+    }
 }
 
 .tab-cancel {
-    max-height: 42px;
     padding: 10px 24px;
 
     font-size: 18px;
@@ -50,6 +57,10 @@
         color: #fff;
     }
 
+    @media (max-width:490px) {
+        padding: 6px 18px;
+        font-size: 18px;
+    }
 }
 
 .days {
@@ -125,7 +136,6 @@
 
 .link {
     padding: 8px 16px;
-
     color: $main-color;
     font-size: 24px;
     text-transform: uppercase;
@@ -137,5 +147,10 @@
     &:hover {
         background: $main-color;
         color: #fff;
+    }
+
+    @media (max-width:490px) {
+        max-height: 44px;
+        font-size: 20px;
     }
 }

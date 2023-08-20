@@ -17,7 +17,7 @@ const ThisDayInfo: React.FC<{ weather: Weather }> = ({ weather }) => {
   {
     img: "assets/images/evaporator.svg",
     label: 'Forecast',
-    info: `Weather in London today: ${weather.weather[0].description}`
+    info: `Weather today: ${weather.weather[0].description}`
   },
   {
     img: "assets/images/wind.svg",

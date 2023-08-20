@@ -1,11 +1,12 @@
 import React from 'react';
 import DayStatistics from './components/DayStatistics';
-import { useWeatherSelector } from '../../hooks/storeHooks';
-import { weatherAPI } from '../../services/WeatherService';
+import { useSelectSelector } from '../../hooks/storeHooks';
+import { useFetchWeather } from '../../hooks/useFetchWeather';
 
 const Statistics: React.FC = () => {
-	const { activeCity } = useWeatherSelector();
-	const { data, isLoading } = weatherAPI.useFetchWeatherDataQuery(activeCity);
+	const { activeCity } = useSelectSelector();
+	const { data, isLoading } = useFetchWeather(activeCity)
+
 
 	if (isLoading) {
 		return <div>Loading...</div>;

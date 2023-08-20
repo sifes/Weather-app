@@ -17,7 +17,7 @@ const ThisDay: React.FC<Props> = ({ weather, city }) => {
 				<img src={`assets/images/weather/${weather.weather[0].icon}.png`} alt={weather.weather[0].description} />
 			</div>
 			<div className='thisDay-time'>
-				Time: <span>{weather.dt_txt.slice(0, 12)}</span>
+				Time: <span>{weather.dt_txt.slice(11, 16)}</span>
 			</div>
 			<div className='thisDay-city'>
 				city: <span>{city}</span>

@@ -16,6 +16,11 @@
         flex-direction: column;
         gap: 30px;
         padding: 40px 0px 40px 30px;
+
+        @media (max-width:767px) {
+            padding: 20px;
+
+        }
     }
 
     & li {

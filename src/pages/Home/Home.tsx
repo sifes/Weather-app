@@ -2,14 +2,12 @@ import React from 'react';
 import ThisDay from './components/ThisDay';
 import ThisDayInfo from './components/ThisDayInfo';
 import Forecast from './components/Forecast/Forecast';
-import { useWeatherSelector } from '../../hooks/storeHooks';
-import { weatherAPI } from '../../services/WeatherService';
-import { storage } from '../../storage/storage';
+import { useSelectSelector } from '../../hooks/storeHooks';
+import { useFetchWeather } from '../../hooks/useFetchWeather';
 
 const Home: React.FC = () => {
-	const { activeCity } = useWeatherSelector()
-	const { data, isLoading } = weatherAPI.useFetchWeatherDataQuery(activeCity);
-
+	const { activeCity } = useSelectSelector();
+	const { data, isLoading } = useFetchWeather(activeCity)
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
@@ -19,8 +17,8 @@ const Home: React.FC = () => {
 	return (
 		<>
 			<div className='home-wrapper'>
-				<ThisDay weather={storage.getItem('currentWeather') ? storage.getItem('currentWeather') : weatherArray[0]} city={storage.getItem('city') ? storage.getItem('city').label : currentCity} />
-				<ThisDayInfo weather={storage.getItem('currentWeather') ? storage.getItem('currentWeather') : weatherArray[0]} />
+				<ThisDay weather={weatherArray[0]} city={currentCity} />
+				<ThisDayInfo weather={weatherArray[0]} />
 			</div>
 			<Forecast />
 		</>

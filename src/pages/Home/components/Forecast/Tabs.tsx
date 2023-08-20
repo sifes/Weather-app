@@ -43,11 +43,12 @@ const Tabs: React.FC<Props> = ({ today, tomorrow }) => {
 						{button.value}
 					</button>
 				))}
+				<button onClick={() => dispatch(onCancelClick())} className='tab-cancel'>
+					Close info
+				</button>
 			</div>
 			<NavLink className='link' to={PATH.STATISTICS}>statistics</NavLink>
-			<button onClick={() => dispatch(onCancelClick())} className='tab-cancel'>
-				Cancel
-			</button>
+
 		</div>
 	);
 };

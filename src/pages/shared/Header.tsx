@@ -1,31 +1,17 @@
 import React from 'react';
 import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import useTheme from '../../hooks/useTheme';
-import { useCustomDispatch, useWeatherSelector } from '../../hooks/storeHooks';
-import { onSelectClick } from '../../store/slices/WeatherSlice';
+import { useCustomDispatch, useSelectSelector } from '../../hooks/storeHooks';
 import { storage } from '../../storage/storage';
-import { weatherAPI } from '../../services/WeatherService';
 import { NavLink } from 'react-router-dom';
 import { PATH } from '../../router';
-import { CITIES, ICityOption } from '../../types';
-
-const options: ICityOption[] = [
-	{ value: CITIES.LONDON, label: CITIES.LONDON },
-	{ value: CITIES.KYIV, label: CITIES.KYIV },
-	{ value: CITIES.PARIS, label: CITIES.PARIS },
-	{ value: CITIES.ROME, label: CITIES.ROME },
-	{ value: CITIES.TOKYO, label: CITIES.TOKYO },
-];
+import { handleCreate, handleInput } from '../../store/slices/SelectSlice';
 
 const Header: React.FC = () => {
-	const { activeCity } = useWeatherSelector();
-	const { data, isLoading } = weatherAPI.useFetchWeatherDataQuery(activeCity);
+	const { isLoadingSelect, options, value } = useSelectSelector();
 	const dispatch = useCustomDispatch();
 	const theme = useTheme();
-
-	if (isLoading) {
-		return <div>Loading...</div>;
-	}
 
 	const colorStyles = {
 		control: (styles: any, state: any) => ({
@@ -48,22 +34,40 @@ const Header: React.FC = () => {
 				<img src='assets/images/logo.svg' alt='logo' />
 				<span>Weather</span>
 			</NavLink>
-			<div className='select'>
+			<div className='actions'>
 				<img onClick={() => theme.changeTheme(theme.theme === 'light' ? 'dark' : 'light')} src='assets/images/drop.svg' alt='drop' />
-				<Select
-					defaultValue={storage.getItem('city') || options[0]}
-					placeholder='search'
-					styles={colorStyles}
-					options={options}
-					onChange={e => {
-						dispatch(onSelectClick(e?.value));
-						storage.setItem(
-							'city',
-							options.find(item => item.value === e?.value)
-						);
-						storage.setItem('currentWeather', data.list[0]);
-					}}
-				/>
+				<div className='select'>
+					{/* <Select
+						defaultValue={storage.getItem('city') || options[0]}
+						placeholder='search'
+						styles={colorStyles}
+						options={options}
+						onChange={e => {
+							dispatch(onSelectClick(e?.value));
+							console.log(e.value);
+							storage.setItem(
+								'city',
+								options.find(item => item.value === e?.value)
+							);
+							storage.setItem('currentWeather', data.list[0]);
+						}}
+					/> */}
+					<CreatableSelect
+						isDisabled={isLoadingSelect}
+						isLoading={isLoadingSelect}
+						onChange={(newValue) => {
+							dispatch(handleInput(newValue))
+							storage.setItem('city', options.find(item => item.value === newValue?.value));
+						}}
+						onCreateOption={(inputValue) => {
+							dispatch(handleCreate(inputValue))
+							storage.setItem('city', { value: inputValue, label: inputValue }
+							);
+						}}
+						options={options}
+						value={value || storage.getItem('city')}
+					/>
+				</div>
 			</div>
 		</header>
 	);

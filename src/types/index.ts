@@ -41,14 +41,6 @@ export interface ICityOption {
 	label: string;
 }
 
-
-export enum CITIES {
-	LONDON = 'London',
-	KYIV = 'Kyiv',
-	PARIS = 'Paris',
-	ROME = 'Rome',
-	TOKYO = 'Tokyo',
-}
 export enum VALUESTOGET {
 	TEMP = 'temp',
 	WIND_SPEED = 'windSpeed',

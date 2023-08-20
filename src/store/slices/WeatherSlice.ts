@@ -1,4 +1,3 @@
-import { CITIES } from './../../types/index';
 import { Weather } from '../../types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
@@ -6,14 +5,12 @@ type State = {
 	isDaysShown: boolean;
 	activeDay: Weather[];
 	isDetailedDayShown: boolean;
-	activeCity: string;
 };
 
 const initialState: State = {
 	isDaysShown: true,
 	activeDay: [],
 	isDetailedDayShown: false,
-	activeCity: CITIES.LONDON,
 };
 
 export const WeatherSlice = createSlice({
@@ -49,11 +46,9 @@ export const WeatherSlice = createSlice({
 			state.isDaysShown = true;
 			state.isDetailedDayShown = false;
 		},
-		onSelectClick(state: State, action: PayloadAction<string>) {
-			state.activeCity = action.payload;
-		},
+
 	},
 });
 
-export const { onTabsClick, onDayClick, onCancelClick, onSelectClick } = WeatherSlice.actions;
+export const { onTabsClick, onDayClick, onCancelClick } = WeatherSlice.actions;
 export default WeatherSlice.reducer;
