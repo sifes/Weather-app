@@ -12,15 +12,12 @@ interface IOption {
 }
 
 type State = {
-    isLoadingSelect: boolean,
     options: IOption[]
     value: IOption | null
     activeCity: IOption;
-
 };
 
 const initialState: State = {
-    isLoadingSelect: false,
     options: [
         createOption('London'),
         createOption('Kyiv'),
@@ -36,9 +33,7 @@ export const SelectSlice = createSlice({
     initialState,
     reducers: {
         handleCreate: (state: State, action) => {
-            state.isLoadingSelect = true
             const newOption = createOption(action.payload);
-            state.isLoadingSelect = false
             state.options.push(newOption)
             state.value = newOption;
             state.activeCity = action.payload;

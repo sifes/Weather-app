@@ -9,7 +9,7 @@ import { PATH } from '../../router';
 import { handleCreate, handleInput } from '../../store/slices/SelectSlice';
 
 const Header: React.FC = () => {
-	const { isLoadingSelect, options, value } = useSelectSelector();
+	const { options, value } = useSelectSelector();
 	const dispatch = useCustomDispatch();
 	const theme = useTheme();
 
@@ -36,38 +36,20 @@ const Header: React.FC = () => {
 			</NavLink>
 			<div className='actions'>
 				<img onClick={() => theme.changeTheme(theme.theme === 'light' ? 'dark' : 'light')} src='assets/images/drop.svg' alt='drop' />
-				<div className='select'>
-					{/* <Select
-						defaultValue={storage.getItem('city') || options[0]}
-						placeholder='search'
-						styles={colorStyles}
-						options={options}
-						onChange={e => {
-							dispatch(onSelectClick(e?.value));
-							console.log(e.value);
-							storage.setItem(
-								'city',
-								options.find(item => item.value === e?.value)
-							);
-							storage.setItem('currentWeather', data.list[0]);
-						}}
-					/> */}
-					<CreatableSelect
-						isDisabled={isLoadingSelect}
-						isLoading={isLoadingSelect}
-						onChange={(newValue) => {
-							dispatch(handleInput(newValue))
-							storage.setItem('city', options.find(item => item.value === newValue?.value));
-						}}
-						onCreateOption={(inputValue) => {
-							dispatch(handleCreate(inputValue))
-							storage.setItem('city', { value: inputValue, label: inputValue }
-							);
-						}}
-						options={options}
-						value={value || storage.getItem('city')}
-					/>
-				</div>
+				<CreatableSelect
+					onChange={(newValue) => {
+						dispatch(handleInput(newValue))
+						storage.setItem('city', options.find(item => item.value === newValue?.value));
+					}}
+					onCreateOption={(inputValue) => {
+						dispatch(handleCreate(inputValue))
+						storage.setItem('city', { value: inputValue, label: inputValue }
+						);
+					}}
+					options={options}
+					value={value || storage.getItem('city')}
+				// styles={colorStyles}
+				/>
 			</div>
 		</header>
 	);

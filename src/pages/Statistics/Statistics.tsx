@@ -2,15 +2,14 @@ import React from 'react';
 import DayStatistics from './components/DayStatistics';
 import { useSelectSelector } from '../../hooks/storeHooks';
 import { useFetchWeather } from '../../hooks/useFetchWeather';
+import NotFound from '../NotFound';
 
 const Statistics: React.FC = () => {
 	const { activeCity } = useSelectSelector();
-	const { data, isLoading } = useFetchWeather(activeCity)
+	const { data, isLoading, error } = useFetchWeather(activeCity)
 
-
-	if (isLoading) {
-		return <div>Loading...</div>;
-	}
+	if (error) return <NotFound />
+	if (isLoading) return <div>Loading...</div>;
 
 	const weatherArray = data.list;
 

@@ -4,9 +4,10 @@ import { Weather } from '../../../types';
 interface Props {
 	weather: Weather;
 	city: string;
+	country: string;
 }
 
-const ThisDay: React.FC<Props> = ({ weather, city }) => {
+const ThisDay: React.FC<Props> = ({ weather, city, country }) => {
 	return (
 		<div className='thisDay'>
 			<div className='thisDay-header'>
@@ -20,7 +21,7 @@ const ThisDay: React.FC<Props> = ({ weather, city }) => {
 				Time: <span>{weather.dt_txt.slice(11, 16)}</span>
 			</div>
 			<div className='thisDay-city'>
-				city: <span>{city}</span>
+				<span>{city} , {country} </span>
 			</div>
 		</div>
 	);

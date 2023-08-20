@@ -10,9 +10,7 @@ const Forecast: React.FC = () => {
   const { data, isLoading } = useFetchWeather(activeCity)
   const { isDaysShown } = useWeatherSelector()
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  if (isLoading) return <div>Loading...</div>;
 
   const weatherArray: Weather[] = data.list
 
