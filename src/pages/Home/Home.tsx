@@ -4,10 +4,15 @@ import ThisDayInfo from './components/ThisDayInfo';
 import Forecast from './components/Forecast/Forecast';
 import { useSelectSelector } from '../../hooks/storeHooks';
 import { useFetchWeather } from '../../hooks/useFetchWeather';
+import NotFound from '../NotFound';
 
 const Home: React.FC = () => {
 	const { activeCity } = useSelectSelector();
-	const { data, isLoading } = useFetchWeather(activeCity)
+	const { data, isLoading, error } = useFetchWeather(activeCity)
+
+	if (error) {
+		return <NotFound />
+	}
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}

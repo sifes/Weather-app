@@ -47,8 +47,13 @@ export const SelectSlice = createSlice({
             state.value = action.payload
             state.activeCity = state.value || { value: 'kyiv', label: 'Kyiv' };
         },
+        handleCancel: (state: State, action: PayloadAction<SingleValue<IOption>>) => {
+            state.options = state.options.filter(option => option.value !== action.payload?.value)
+            state.value = { value: 'kyiv', label: 'Kyiv' }
+            state.activeCity = { value: 'kyiv', label: 'Kyiv' };
+        },
     },
 });
 
-export const { handleCreate, handleInput } = SelectSlice.actions;
+export const { handleCreate, handleInput, handleCancel } = SelectSlice.actions;
 export default SelectSlice.reducer;
