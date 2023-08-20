@@ -15,6 +15,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     '-background-component',
     '-background-day',
     '-background-body',
+    '-background-shadow-scroll'
   ]
   useEffect(() => {
     const root = document.querySelector(':root') as HTMLElement

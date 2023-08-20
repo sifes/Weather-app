@@ -25,6 +25,9 @@ export function getDate(dateText: string) {
 export function getWeekDay(dateText: string) {
 	return new Date(dateText).toString().split(' ')[0]
 }
+export function upFirstChar(str: string) {
+	return str[0].toUpperCase() + str.slice(1);
+}
 // </--- HELPER-FUNCTIONS ---/> //
 
 // <--- GET DATA FOR CHARTS ---> //

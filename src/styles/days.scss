@@ -1,0 +1,73 @@
+.days {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    position: relative;
+    padding: 18px;
+    margin-bottom: 30px;
+
+    background-color: var(--default-background-component);
+    border-radius: 20px 20px 10px 10px;
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+
+    @media (max-width:1080px) {
+        overflow-x: scroll;
+    }
+}
+
+.day {
+    flex: 1 0 auto;
+    padding: 20px;
+
+    border-radius: 10px;
+    background: var(--default-background-day);
+    transition: transform 0.3s;
+    cursor: pointer;
+    -webkit-box-shadow: -2px 2px 10px 0px var(--default-background-shadow-scroll);
+    -moz-box-shadow: -2px 2px 10px 0px var(--default-background-shadow-scroll);
+    box-shadow: -2px 2px 10px 0px var(--default-background-shadow-scroll);
+
+    & .day-name {
+        color: var(--default-color);
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    & .day-date {
+        color: $gray;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    & .day-img {
+        width: 144px;
+        height: 144px;
+        padding: 12px;
+        flex-shrink: 0;
+    }
+
+    & .day-tempDay {
+        color: var(--default-color);
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 6px;
+    }
+
+    & .day-tempNight {
+        color: $gray;
+        font-size: 13px;
+        margin-bottom: 6px;
+
+    }
+
+    & .day-info {
+        color: $gray;
+        font-size: 13px;
+    }
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}

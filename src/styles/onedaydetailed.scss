@@ -7,9 +7,24 @@
     text-align: center;
 
     &Wrapper {
+        padding-bottom: 16px;
         overflow-x: scroll;
         display: flex;
         gap: 16px;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--default-background-shadow-scroll);
+            border-radius: 5px;
+        }
+
+        scrollbar-color: var(--default-background-shadow-scroll) #ddd;
+        -ms-overflow-style: none;
+        scrollbar-width: thin;
+        scrollbar-color: var(--default-background-shadow-scroll) #ddd;
     }
 
     & .item {

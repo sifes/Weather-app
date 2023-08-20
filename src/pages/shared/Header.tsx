@@ -1,5 +1,4 @@
 import React from 'react';
-import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import useTheme from '../../hooks/useTheme';
 import { useCustomDispatch, useSelectSelector } from '../../hooks/storeHooks';

@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SingleValue } from 'react-select';
+import { upFirstChar } from '../../utils';
 
 const createOption = (label: string) => ({
-    label,
+    label: upFirstChar(label),
     value: label.toLowerCase().replace(/\W/g, ''),
 });
 

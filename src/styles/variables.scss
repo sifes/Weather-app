@@ -15,6 +15,9 @@ $light-background-day: #4793FF33;
 $dark-background-body: #0D1117;
 $light-background-body: #fff;
 
+$dark-background-shadow-scroll: #888888;
+$light-background-shadow-scroll: #dadada;
+
 // </ variables for dark/light theme />
 :root {
     // text
@@ -27,12 +30,17 @@ $light-background-body: #fff;
     --dark-background-component: #{$dark-background-component};
     --default-background-component: var(#{--dark-background-component});
 
+    // scrollbar and shadow 
+    --light-background-shadow-scroll: #{$light-background-shadow-scroll};
+    --dark-background-shadow-scroll: #{$dark-background-shadow-scroll};
+    --default-background-shadow-scroll: var(#{--dark-background-shadow-scroll});
+
     // background of cards
     --light-background-day: #{$light-background-day};
     --dark-background-day: #{$dark-background-day};
     --default-background-day: var(#{--dark-background-day});
 
-    // text
+    // background of body
     --light-background-body: #{$light-background-body};
     --dark-background-body: #{$dark-background-body};
     --default-background-body: var(#{--dark-background-body});

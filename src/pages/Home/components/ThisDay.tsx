@@ -21,7 +21,7 @@ const ThisDay: React.FC<Props> = ({ weather, city, country }) => {
 				Time: <span>{weather.dt_txt.slice(11, 16)}</span>
 			</div>
 			<div className='thisDay-city'>
-				<span>{city} , {country} </span>
+				<span>{city}, {country} </span>
 			</div>
 		</div>
 	);
