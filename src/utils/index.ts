@@ -25,9 +25,15 @@ export function getDate(dateText: string) {
 export function getWeekDay(dateText: string) {
 	return new Date(dateText).toString().split(' ')[0]
 }
+// <--- for selectSlice
 export function upFirstChar(str: string) {
 	return str[0].toUpperCase() + str.slice(1);
 }
+export const createOption = (label: string) => ({
+	label: upFirstChar(label).trim(),
+	value: label.toLowerCase().trim().replace(/\W/g, ''),
+});
+// </--- for selectSlice
 // </--- HELPER-FUNCTIONS ---/> //
 
 // <--- GET DATA FOR CHARTS ---> //

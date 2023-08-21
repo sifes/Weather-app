@@ -1,16 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SingleValue } from 'react-select';
-import { upFirstChar } from '../../utils';
-
-const createOption = (label: string) => ({
-    label: upFirstChar(label),
-    value: label.toLowerCase().replace(/\W/g, ''),
-});
-
-interface IOption {
-    readonly label: string;
-    readonly value: string;
-}
+import { createOption } from '../../utils';
+import { IOption } from '../../types';
 
 type State = {
     options: IOption[]
@@ -48,8 +39,13 @@ export const SelectSlice = createSlice({
             state.value = { value: 'kyiv', label: 'Kyiv' }
             state.activeCity = { value: 'kyiv', label: 'Kyiv' };
         },
+        removeCity: (state: State, action: PayloadAction<string>) => {
+            const cityToRemove = action.payload;
+            state.options = state.options.filter(option => option.value !== cityToRemove);
+        }
+
     },
 });
 
-export const { handleCreate, handleInput, handleCancel } = SelectSlice.actions;
+export const { handleCreate, handleInput, handleCancel, removeCity } = SelectSlice.actions;
 export default SelectSlice.reducer;

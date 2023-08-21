@@ -8,7 +8,7 @@ const OneDayDetailed: React.FC = () => {
 	return (
 		<div className='oneDayDetailed'>
 			{!isDetailedDayShown ? (
-				<div className='oneDayDetailedPre'>Choose a day to see it more detailed!</div>
+				<div className='oneDayDetailedPre'>Choose a day to see it detailed!</div>
 			) : (
 				<>
 					<div>{new Date(activeDay[0].dt_txt).toString().slice(0, 16)}</div>

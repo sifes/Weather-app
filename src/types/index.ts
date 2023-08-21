@@ -32,6 +32,14 @@ export type Wind = {
 };
 // </--- WEATHER ---/> //
 
+
+// <--- Select Slice ---> //
+export interface IOption {
+	readonly label: string;
+	readonly value: string;
+}
+// </--- Select Slice ---/> //
+
 export interface IdayInfo {
 	label: string, info: string, img: string
 }
