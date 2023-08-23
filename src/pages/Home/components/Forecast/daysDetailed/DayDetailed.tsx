@@ -1,6 +1,6 @@
-import OneDayDetailedItem from './OneDayDetailedItem';
-import { useWeatherSelector } from '../../../../hooks/storeHooks';
-import { Weather } from '../../../../types';
+import OneDayDetailedItem from './DayDetailedItem';
+import { useWeatherSelector } from '../../../../../hooks/storeHooks';
+import { Weather } from '../../../../../types';
 
 const OneDayDetailed: React.FC = () => {
 	const { activeDay, isDetailedDayShown } = useWeatherSelector()

@@ -40,11 +40,13 @@
 .select-option {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 6px 12px;
     gap: 12px;
     cursor: pointer;
 
-    & span {}
-
-    & button {}
+    & button {
+        color: var(--default-color);
+        padding: 2px;
+    }
 }

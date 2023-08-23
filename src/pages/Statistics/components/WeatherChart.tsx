@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radar, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, CartesianGrid } from 'recharts';
+import { Radar, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 
 type TempProps = { data: { hours: string; temperature: string }[], datakey: string };
 type WindSpeedProps = { data: { hours: string; wind: number }[], datakey: string };
@@ -30,5 +30,3 @@ export const RadarChartComponent: React.FC<WindDirectProps | CloudsProps> = ({ d
 		</ResponsiveContainer>
 	);
 };
-{
-}

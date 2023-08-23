@@ -1,9 +1,9 @@
 import React from 'react';
-import { onCancelClick, onTabsClick } from '../../../../store/slices/WeatherSlice';
-import { useCustomDispatch } from '../../../../hooks/storeHooks';
+import { onCancelClick, onTabsClick } from '../../../../../store/slices/WeatherSlice';
+import { useCustomDispatch } from '../../../../../hooks/storeHooks';
 import { NavLink } from 'react-router-dom';
-import { PATH } from '../../../../router';
-import { Weather } from '../../../../types';
+import { PATH } from '../../../../../router';
+import { Weather } from '../../../../../types';
 
 type Props = {
 	today: Weather[],

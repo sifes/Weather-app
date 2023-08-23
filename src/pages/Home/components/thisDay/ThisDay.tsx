@@ -1,5 +1,5 @@
 import React from 'react';
-import { Weather } from '../../../types';
+import { Weather } from '../../../../types';
 
 interface Props {
 	weather: Weather;

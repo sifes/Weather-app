@@ -1,7 +1,7 @@
 import React from 'react';
-import ThisDay from './components/ThisDay';
-import ThisDayInfo from './components/ThisDayInfo';
-import Forecast from './components/Forecast/Forecast';
+import ThisDay from './components/thisDay/ThisDay';
+import ThisDayInfo from './components/thisDayInfo/ThisDayInfo';
+import Forecast from './components/forecast/Forecast';
 import { useSelectSelector } from '../../hooks/storeHooks';
 import { useFetchWeather } from '../../hooks/useFetchWeather';
 import NotFound from '../NotFound';

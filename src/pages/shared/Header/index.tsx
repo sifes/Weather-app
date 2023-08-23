@@ -6,7 +6,6 @@ import HeaderSelect from './HeaderSelect';
 
 
 const Header: React.FC = () => {
-
 	const theme = useTheme();
 
 	return (

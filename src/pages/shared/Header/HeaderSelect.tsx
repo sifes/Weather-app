@@ -5,7 +5,6 @@ import { ICityOption } from '../../../types';
 import { useCustomDispatch, useSelectSelector } from '../../../hooks/storeHooks';
 import { handleCreate, handleInput, removeCity } from '../../../store/slices/SelectSlice';
 import { storage } from '../../../storage/storage';
-import useTheme from '../../../hooks/useTheme';
 
 
 const CustomOption: React.FC<OptionProps<ICityOption>> = ({ innerProps, label, data }) => {
@@ -22,29 +21,29 @@ const CustomOption: React.FC<OptionProps<ICityOption>> = ({ innerProps, label, d
     );
 };
 const HeaderSelect: React.FC = () => {
-    const theme = useTheme();
     const { options, value } = useSelectSelector();
     const dispatch = useCustomDispatch();
 
     const customStyles: StylesConfig<any, boolean, GroupBase<ICityOption>> = {
-        control: (base, props) => ({
+        control: (base) => ({
             ...base,
-            // minWidth: props.isFocused ? '150px' : 'none',
             backgroundColor: 'var(--default-background-day)',
             color: 'var(--default-color)',
         }),
-        singleValue: (base, props) => ({
-            // any because babel "cant find types for this shit"
+        singleValue: (base) => ({
             ...base,
             color: 'var(--default-color)',
         }),
-        menu: (base, props) => ({
+        menu: (base) => ({
             ...base,
             backgroundColor: 'var(--default-background-day)',
             color: 'var(--default-color)',
             width: 'max-content',
         }),
-
+        input: (base) => ({
+            ...base,
+            color: 'var(--default-color)',
+        })
 
     };
     return (
