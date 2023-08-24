@@ -17,7 +17,7 @@ export const WeatherSlice = createSlice({
 	name: 'weather',
 	initialState,
 	reducers: {
-		onTabsClick(state: State, action: PayloadAction<{ id: number; activeDay: any }>) {
+		onTabsClick(state: State, action: PayloadAction<{ id: number; activeDay: Weather[] }>) {
 			switch (action.payload.id) {
 				case 0:
 					state.isDaysShown = false;

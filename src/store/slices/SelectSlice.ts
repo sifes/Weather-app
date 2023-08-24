@@ -24,8 +24,8 @@ export const SelectSlice = createSlice({
     name: 'select',
     initialState,
     reducers: {
-        handleCreate: (state: State, action) => {
-            const newOption = createOption(action.payload);
+        handleCreate: (state: State, action: PayloadAction<IOption>) => {
+            const newOption = createOption(action.payload.label);
             state.options.push(newOption)
             state.value = newOption;
             state.activeCity = action.payload;

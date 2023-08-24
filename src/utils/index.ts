@@ -117,18 +117,6 @@ export function getMinValue(arr: Weather[], whatToGet: string) {
 		default:
 			break;
 	}
-	// switch (whatToGet) {
-	// 	case VALUESTOGET.TEMP:
-	// 		return arr.reduce((acum, curr) => acum.temp < curr.main.temp ? { temp: curr.main.temp, time: curr.dt_txt } : acum, { temp: 0, time: '' })
-	// 	case VALUESTOGET.WIND_SPEED:
-	// 		return arr.reduce((acum, curr) => acum.windSpeed < curr.wind.speed ? { windSpeed: curr.wind.speed, time: curr.dt_txt } : acum, { windSpeed: 0, time: '' })
-	// 	case VALUESTOGET.PRESSURE:
-	// 		return arr.reduce((acum, curr) => acum.pressure < curr.main.pressure ? { pressure: curr.main.pressure, time: curr.dt_txt } : acum, { pressure: 0, time: '' })
-	// 	case VALUESTOGET.HUMIDITY:
-	// 		return arr.reduce((acum, curr) => acum.humidity < curr.main.temp ? { humidity: curr.main.temp, time: curr.dt_txt } : acum, { humidity: 0, time: '' })
-	// 	default:
-	// 		return arr[0]
-	// } getting error 'dont have key "temp" on type...'  dunno why
 }
 export function getMaxValue(arr: Weather[], whatToGet: string) {
 	switch (whatToGet) {
