@@ -1,6 +1,6 @@
 import React from 'react'
 import ThisDayInfoItem from './ThisDayInfoItem'
-import { IdayInfo, Weather } from '../../../../types'
+import { IdayInfo, Weather } from '../../../types'
 
 const ThisDayInfo: React.FC<{ weather: Weather }> = ({ weather }) => {
 

@@ -4,7 +4,7 @@ import ThisDayInfo from './components/thisDayInfo/ThisDayInfo';
 import Forecast from './components/forecast/Forecast';
 import { useSelectSelector } from '../../hooks/storeHooks';
 import { useFetchWeather } from '../../hooks/useFetchWeather';
-import NotFound from '../NotFound';
+import NotFound from '../not-found/NotFound';
 
 const Home: React.FC = () => {
 	const { activeCity } = useSelectSelector();
