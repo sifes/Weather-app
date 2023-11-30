@@ -4,30 +4,30 @@ import { Weather } from '../../../../../types';
 import OneDayDetailedItem from '../DayDetailedItem';
 
 const OneDayDetailed: React.FC = () => {
-	const { activeDay, isDetailedDayShown } = useWeatherSelector()
-    const dispatch = useCustomDispatch();
+  const { activeDay, isDetailedDayShown } = useWeatherSelector();
+  const dispatch = useCustomDispatch();
 
-	return (
-		<div className='oneDayDetailed'>
-			{!isDetailedDayShown ? (
-				<div className='oneDayDetailedPre'>Pick a day to see it in details!</div>
-			) : (
-				<>
-					<div>
-						<h4>{new Date(activeDay[0].dt_txt).toString().slice(0, 16)}</h4>
-						<button onClick={() => dispatch(onCancelClick())} className='tab-cancel'>
-							Close info
-						</button>
-						</div>
-					<ul className='oneDayDetailedWrapper'>
-						{activeDay.map((oneDayDetailedInfo: Weather) => (
-							<OneDayDetailedItem key={oneDayDetailedInfo.dt} weather={oneDayDetailedInfo} />
-						))}
-					</ul>
-				</>
-			)}
-		</div>
-	);
+  return (
+    <div className='oneDayDetailed'>
+      {!isDetailedDayShown ? (
+        <div className='oneDayDetailedPre'>Pick a day to see it in details!</div>
+      ) : (
+        <>
+          <div>
+            <h4>{new Date(activeDay[0].dt_txt).toString().slice(0, 16)}</h4>
+            <button onClick={() => dispatch(onCancelClick())} className='tab-cancel'>
+              Close info
+            </button>
+          </div>
+          <ul className='oneDayDetailedWrapper'>
+            {activeDay.map((oneDayDetailedInfo: Weather) => (
+              <OneDayDetailedItem key={oneDayDetailedInfo.dt} weather={oneDayDetailedInfo} />
+            ))}
+          </ul>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default OneDayDetailed;

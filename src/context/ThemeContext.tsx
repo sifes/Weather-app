@@ -18,12 +18,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     '-background-shadow-scroll'
   ]
   useEffect(() => {
-    const root = document.querySelector(':root') as HTMLElement
-    properties.forEach(property => {
-      root.style.setProperty(`--default${property}`, `var(--${theme}${property})`)
+    const root = document.querySelector(':root') as HTMLElement;
+    properties.forEach((property) => {
+      root.style.setProperty(`--default${property}`, `var(--${theme}${property})`);
     });
-
-  }, [theme])
+  }, [theme]);
 
 
   return (

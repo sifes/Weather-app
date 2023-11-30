@@ -1,24 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
 export const weatherAPI = createApi({
-	reducerPath: 'weatherAPI',
-	baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
-	endpoints: build => ({
-		fetchWeatherData: build.query({
-			query:( city = 'kyiv') => ({
-				url: `?q=${city.value}&appid=${process.env.REACT_APP_API_KEY}&units=metric`,
-			}),
-		}),
-	}),
+  reducerPath: 'weatherAPI',
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
+  endpoints: (build) => ({
+    fetchWeatherData: build.query({
+      query: (city = 'kyiv') => ({
+        url: `?q=${city.value}&appid=${process.env.REACT_APP_API_KEY}&units=metric`,
+      }),
+    }),
+  }),
 });
-
-
-
-
-
-
-
-
 
 // lat=${cities[city].lat}&lon=${cities[city].lon}
 // const cities: any = {
@@ -42,4 +34,4 @@ export const weatherAPI = createApi({
 // 		lat: 35.68,
 // 		lon: 139.69,
 // 	},
-// }; 
+// };

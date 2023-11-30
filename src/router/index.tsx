@@ -10,19 +10,19 @@ export enum PATH {
 }
 
 export const router = createBrowserRouter([
-	{
-		path: PATH.INDEX,
-		element: <Layout />,
-		errorElement: <NotFound />,
-		children: [
-			{
-				index: true,
-				element: <Home />,
-			},
-			{
-				path: PATH.STATISTICS,
-				element: <Statistics />,
-			},
-		],
-	},
+  {
+    path: PATH.INDEX,
+    element: <Layout />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: PATH.STATISTICS,
+        element: <Statistics />,
+      },
+    ],
+  },
 ]);
