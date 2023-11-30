@@ -1,5 +1,5 @@
 import React from 'react'
-import { IdayInfo } from '../../../types'
+import { IdayInfo } from '../../../../types'
 
 const ThisDayInfoItem: React.FC<IdayInfo> = ({ label, info, img }) => {
   return (

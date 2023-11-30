@@ -1,9 +1,9 @@
 import Tabs from './tabs/Tabs'
 import Days from './days/Days'
-import OneDayDetailed from './daysDetailed/DayDetailed'
-import { useSelectSelector, useWeatherSelector } from '../../../../hooks/storeHooks'
-import { Weather } from '../../../../types'
-import { useFetchWeather } from '../../../../hooks/useFetchWeather'
+import { useSelectSelector, useWeatherSelector } from '../../../hooks/storeHooks';
+import { useFetchWeather } from '../../../hooks/useFetchWeather';
+import { Weather } from '../../../types';
+import OneDayDetailed from './days-detailed/day-detailed/DayDetailed';
 
 const Forecast: React.FC = () => {
   const { activeCity } = useSelectSelector();

@@ -1,10 +1,10 @@
 import React from 'react';
-import ThisDay from './components/thisDay/ThisDay';
-import ThisDayInfo from './components/thisDayInfo/ThisDayInfo';
-import Forecast from './components/forecast/Forecast';
 import { useSelectSelector } from '../../hooks/storeHooks';
 import { useFetchWeather } from '../../hooks/useFetchWeather';
 import NotFound from '../not-found/NotFound';
+import ThisDay from '../../components/home/this-day/ThisDay';
+import Forecast from '../../components/home/forecast/Forecast';
+import ThisDayInfo from '../../components/home/this-day-info/ThisDayInfo';
 
 const Home: React.FC = () => {
 	const { activeCity } = useSelectSelector();

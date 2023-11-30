@@ -1,6 +1,6 @@
 import React from 'react';
-import Day from './Day';
-import { Weather } from '../../../../../types';
+import Day from './day/Day';
+import { Weather } from '../../../../types';
 
 const Days: React.FC<{ weatherArray: Weather[] }> = ({ weatherArray }) => {
 	return (

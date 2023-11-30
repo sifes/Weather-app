@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SingleValue } from 'react-select';
-import { createOption } from '../../utils';
+import { createOption } from '../../utils/helpers';
 import { IOption } from '../../types';
 
 type State = {

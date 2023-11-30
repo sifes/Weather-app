@@ -53,7 +53,7 @@ const HeaderSelect: React.FC = () => {
                 storage.setItem('city', options.find(item => item.value === newValue?.value));
             }}
             onCreateOption={(inputValue) => {
-                dispatch(handleCreate(inputValue))
+                dispatch(handleCreate({label: inputValue, value: inputValue}))
                 storage.setItem('city', { value: inputValue, label: inputValue }
                 );
             }}

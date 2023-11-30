@@ -1,5 +1,5 @@
-import { Weather } from '../../../../../types';
-import { getWindDirect } from '../../../../../utils';
+import { Weather } from "../../../../types";
+import { getWindDirect } from "../../../../utils/helpers";
 
 const OneDayDetailedItem: React.FC<{ weather: Weather }> = ({ weather }) => {
 	return (

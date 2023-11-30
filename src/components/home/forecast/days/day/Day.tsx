@@ -1,8 +1,8 @@
 import React from 'react'
-import { Weather } from '../../../../../types'
 import { useCustomDispatch } from '../../../../../hooks/storeHooks'
 import { onDayClick } from '../../../../../store/slices/WeatherSlice'
-import { getWeekDay, getDate } from '../../../../../utils'
+import { Weather } from '../../../../../types'
+import { getWeekDay, getDate } from '../../../../../utils/helpers'
 
 
 const OneDayItem: React.FC<{ weatherFullDay: Weather[] }> = ({ weatherFullDay }) => {

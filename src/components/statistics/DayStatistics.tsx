@@ -1,7 +1,9 @@
 import React from 'react';
 import { LineChartComponent, RadarChartComponent } from './WeatherChart';
 import { VALUESTOGET, Weather } from '../../types';
-import { getFullDate, getTempData, getWindSpeedData, getWindDirectData, getMinValue, getAvgValue, getMaxValue, getCloudsData } from '../../utils';
+import { getTempData, getWindSpeedData, getWindDirectData, getCloudsData } from '../../utils/getDataChart';
+import { getMaxValue, getMinValue, getAvgValue } from '../../utils/getValues';
+import { getFullDate } from '../../utils/helpers';
 
 const DayStatistics: React.FC<{ weather: Weather[] }> = ({ weather }) => {
 	return (

@@ -1,14 +1,15 @@
 import React from 'react';
-import { onCancelClick, onTabsClick } from '../../../../../store/slices/WeatherSlice';
-import { useCustomDispatch } from '../../../../../hooks/storeHooks';
 import { NavLink } from 'react-router-dom';
-import { PATH } from '../../../../../router';
-import { Weather } from '../../../../../types';
+import { useCustomDispatch } from '../../../../hooks/storeHooks';
+import { PATH } from '../../../../router';
+import { onTabsClick, onCancelClick } from '../../../../store/slices/WeatherSlice';
+import { Weather } from '../../../../types';
 
 type Props = {
 	today: Weather[],
 	tomorrow: Weather[]
 }
+
 
 const Tabs: React.FC<Props> = ({ today, tomorrow }) => {
 	const [activeIndex, setActiveIndex] = React.useState(0) // can i do this or should i do this in rtk?
@@ -43,9 +44,7 @@ const Tabs: React.FC<Props> = ({ today, tomorrow }) => {
 						{button.value}
 					</button>
 				))}
-				<button onClick={() => dispatch(onCancelClick())} className='tab-cancel'>
-					Close info
-				</button>
+				
 			</div>
 			<NavLink className='link' to={PATH.STATISTICS}>statistics</NavLink>
 
