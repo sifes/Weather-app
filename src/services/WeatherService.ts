@@ -2,17 +2,15 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
 export const weatherAPI = createApi({
 	reducerPath: 'weatherAPI',
-	baseQuery: fetchBaseQuery({ baseUrl: 'https://api.openweathermap.org/data/2.5/forecast' }),
+	baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
 	endpoints: build => ({
 		fetchWeatherData: build.query({
-			query: city => ({
-				url: `?q=${city.value || 'kyiv'}&appid=${'461dd59455d209a25fdb42671478b32f'}&units=metric`,
+			query:( city = 'kyiv') => ({
+				url: `?q=${city.value}&appid=${process.env.REACT_APP_API_KEY}&units=metric`,
 			}),
 		}),
 	}),
 });
-// key openWeather = '461dd59455d209a25fdb42671478b32f'    ///// was in env.local
-
 
 
 
