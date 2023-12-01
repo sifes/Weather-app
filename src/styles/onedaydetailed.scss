@@ -6,6 +6,7 @@
     border: 1px solid $gray;
     text-align: center;
 
+
     &Wrapper {
         padding: 12px 12px 20px 12px;
         overflow-x: scroll;
@@ -25,6 +26,12 @@
         -ms-overflow-style: none;
         scrollbar-width: thin;
         scrollbar-color: var(--default-background-shadow-scroll) #ddd;
+    }
+    &Header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
     }
 
     & .item {

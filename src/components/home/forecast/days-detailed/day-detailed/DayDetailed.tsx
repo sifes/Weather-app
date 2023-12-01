@@ -10,10 +10,10 @@ const OneDayDetailed: React.FC = () => {
   return (
     <div className='oneDayDetailed'>
       {!isDetailedDayShown ? (
-        <div className='oneDayDetailedPre'>Pick a day to see it in details!</div>
+        <h3 className='oneDayDetailedPre'>Pick a day to see it in details!</h3>
       ) : (
         <>
-          <div>
+          <div className='oneDayDetailedHeader'>
             <h4>{new Date(activeDay[0].dt_txt).toString().slice(0, 16)}</h4>
             <button onClick={() => dispatch(onCancelClick())} className='tab-cancel'>
               Close info
