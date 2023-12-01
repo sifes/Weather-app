@@ -1,7 +1,7 @@
 import { Weather } from '../../../../types';
 import { getWindDirect } from '../../../../utils/helpers';
 
-const OneDayDetailedItem: React.FC<{ weather: Weather }> = ({ weather }) => {
+export const OneDayDetailedItem: React.FC<{ weather: Weather }> = ({ weather }) => {
   return (
     <li className='item'>
       <img
@@ -20,5 +20,3 @@ const OneDayDetailedItem: React.FC<{ weather: Weather }> = ({ weather }) => {
     </li>
   );
 };
-
-export default OneDayDetailedItem;

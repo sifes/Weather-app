@@ -1,11 +1,11 @@
-import Tabs from './tabs/Tabs';
-import Days from './days/Days';
 import { useSelectSelector, useWeatherSelector } from '../../../hooks/storeHooks';
 import { useFetchWeather } from '../../../hooks/useFetchWeather';
 import { Weather } from '../../../types';
-import OneDayDetailed from './days-detailed/day-detailed/DayDetailed';
+import { OneDayDetailed } from './days-detailed/day-detailed/DayDetailed';
+import { Days } from './days/Days';
+import { Tabs } from './tabs/Tabs';
 
-const Forecast: React.FC = () => {
+export const Forecast: React.FC = () => {
   const { activeCity } = useSelectSelector();
   const { data, isLoading } = useFetchWeather(activeCity);
   const { isDaysShown } = useWeatherSelector();
@@ -22,5 +22,3 @@ const Forecast: React.FC = () => {
     </>
   );
 };
-
-export default Forecast;

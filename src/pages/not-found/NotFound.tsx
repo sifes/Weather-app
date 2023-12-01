@@ -5,7 +5,7 @@ import { storage } from '../../storage/storage';
 import { useCustomDispatch } from '../../hooks/storeHooks';
 import { handleCancel } from '../../store/slices/SelectSlice';
 
-const NotFound: React.FC = () => {
+export const NotFound: React.FC = () => {
   const dispatch = useCustomDispatch();
   return (
     <div className='notFound'>
@@ -27,4 +27,3 @@ const NotFound: React.FC = () => {
   );
 };
 
-export default NotFound;

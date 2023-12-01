@@ -4,7 +4,7 @@ import { onDayClick } from '../../../../../store/slices/WeatherSlice';
 import { Weather } from '../../../../../types';
 import { getWeekDay, getDate } from '../../../../../utils/helpers';
 
-const OneDayItem: React.FC<{ weatherFullDay: Weather[] }> = ({ weatherFullDay }) => {
+export const OneDayItem: React.FC<{ weatherFullDay: Weather[] }> = ({ weatherFullDay }) => {
   const currentWeather = weatherFullDay[2];
   const dispatch = useCustomDispatch();
 
@@ -23,5 +23,3 @@ const OneDayItem: React.FC<{ weatherFullDay: Weather[] }> = ({ weatherFullDay })
     </article>
   );
 };
-
-export default OneDayItem;

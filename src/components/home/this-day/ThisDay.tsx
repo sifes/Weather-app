@@ -7,7 +7,7 @@ interface Props {
   country: string;
 }
 
-const ThisDay: React.FC<Props> = ({ weather, city, country }) => {
+export const ThisDay: React.FC<Props> = ({ weather, city, country }) => {
   return (
     <div className='thisDay'>
       <div className='thisDay-header'>
@@ -29,4 +29,3 @@ const ThisDay: React.FC<Props> = ({ weather, city, country }) => {
   );
 };
 
-export default ThisDay;

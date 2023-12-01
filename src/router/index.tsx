@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Home from '../pages/home/Home';
 import Layout from './Layout';
-import Statistics from '../pages/statistics/Statistics';
-import NotFound from '../pages/not-found/NotFound';
+import { Home } from '../pages/home/Home';
+import { NotFound } from '../pages/not-found/NotFound';
+import { Statistics } from '../pages/statistics/Statistics';
 
 export enum PATH {
-	INDEX = '/',
-	STATISTICS = '/statistics',
+  INDEX = '/',
+  STATISTICS = '/statistics',
 }
 
 export const router = createBrowserRouter([

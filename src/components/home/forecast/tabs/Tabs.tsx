@@ -4,38 +4,23 @@ import { useCustomDispatch } from '../../../../hooks/storeHooks';
 import { PATH } from '../../../../router';
 import { onTabsClick } from '../../../../store/slices/WeatherSlice';
 import { Weather } from '../../../../types';
+import { getButtons } from '../../../../utils/getButtons';
 
 type Props = {
   today: Weather[];
   tomorrow: Weather[];
 };
 
-const Tabs: React.FC<Props> = ({ today, tomorrow }) => {
+export const Tabs: React.FC<Props> = ({ today, tomorrow }) => {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const dispatch = useCustomDispatch();
 
-  const buttons = [
-    {
-      id: 0,
-      value: 'today',
-      activeDay: today,
-    },
-    {
-      id: 1,
-      value: 'tomorrow',
-      activeDay: tomorrow,
-    },
-    {
-      id: 2,
-      value: '5 days',
-      activeDay: today,
-    },
-  ];
+  const buttonsArray = getButtons(today, tomorrow);
 
   return (
     <div className='tabs-wrapper'>
       <div className='tabs'>
-        {buttons.map((button) => (
+        {buttonsArray.map((button) => (
           <button
             onClick={() => {
               setActiveIndex(button.id);
@@ -54,5 +39,3 @@ const Tabs: React.FC<Props> = ({ today, tomorrow }) => {
     </div>
   );
 };
-
-export default Tabs;

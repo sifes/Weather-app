@@ -5,7 +5,7 @@ import { getTempData, getWindSpeedData, getWindDirectData, getCloudsData } from 
 import { getMaxValue, getMinValue, getAvgValue } from '../../utils/getValues';
 import { getFullDate } from '../../utils/helpers';
 
-const DayStatistics: React.FC<{ weather: Weather[] }> = ({ weather }) => {
+export const DayStatistics: React.FC<{ weather: Weather[] }> = ({ weather }) => {
   return (
     <div className='DayStatistics'>
       <div className='date'>{getFullDate(weather[0].dt)}</div>
@@ -88,5 +88,3 @@ const DayStatistics: React.FC<{ weather: Weather[] }> = ({ weather }) => {
     </div>
   );
 };
-
-export default DayStatistics;

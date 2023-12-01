@@ -19,7 +19,8 @@ const CustomOption: React.FC<OptionProps<ICityOption>> = ({ innerProps, label, d
     </div>
   );
 };
-const HeaderSelect: React.FC = () => {
+
+export const HeaderSelect: React.FC = () => {
   const { options, value } = useSelectSelector();
   const dispatch = useCustomDispatch();
 
@@ -66,5 +67,3 @@ const HeaderSelect: React.FC = () => {
     />
   );
 };
-
-export default HeaderSelect;

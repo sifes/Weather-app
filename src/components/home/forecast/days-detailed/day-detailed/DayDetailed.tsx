@@ -1,9 +1,9 @@
 import { useCustomDispatch, useWeatherSelector } from '../../../../../hooks/storeHooks';
 import { onCancelClick } from '../../../../../store/slices/WeatherSlice';
 import { Weather } from '../../../../../types';
-import OneDayDetailedItem from '../DayDetailedItem';
+import { OneDayDetailedItem } from '../DayDetailedItem';
 
-const OneDayDetailed: React.FC = () => {
+export const OneDayDetailed: React.FC = () => {
   const { activeDay, isDetailedDayShown } = useWeatherSelector();
   const dispatch = useCustomDispatch();
 
@@ -30,4 +30,3 @@ const OneDayDetailed: React.FC = () => {
   );
 };
 
-export default OneDayDetailed;

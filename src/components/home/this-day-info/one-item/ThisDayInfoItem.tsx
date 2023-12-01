@@ -1,7 +1,7 @@
 import React from 'react';
 import { IdayInfo } from '../../../../types';
 
-const ThisDayInfoItem: React.FC<IdayInfo> = ({ label, info, img }) => {
+export const ThisDayInfoItem: React.FC<IdayInfo> = ({ label, info, img }) => {
   return (
     <li>
       <div className='icon'>
@@ -13,4 +13,3 @@ const ThisDayInfoItem: React.FC<IdayInfo> = ({ label, info, img }) => {
   );
 };
 
-export default ThisDayInfoItem;

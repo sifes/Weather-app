@@ -1,30 +1,10 @@
 import React from 'react';
-import ThisDayInfoItem from './one-item/ThisDayInfoItem';
+import { ThisDayInfoItem } from './one-item/ThisDayInfoItem';
 import { IdayInfo, Weather } from '../../../types';
+import { getDaysInfo } from '../../../utils/getDaysInfo';
 
-const ThisDayInfo: React.FC<{ weather: Weather }> = ({ weather }) => {
-  const daysInfo: IdayInfo[] = [
-    {
-      img: 'assets/images/thermometer.svg',
-      label: 'Temperature',
-      info: `${Math.round(weather.main.temp)}° - feel like ${Math.round(weather.main.feels_like)}°`,
-    },
-    {
-      img: 'assets/images/pressure.svg',
-      label: 'Pressure',
-      info: `${weather.main.pressure} Precipitation in liquid equivalent, mm`,
-    },
-    {
-      img: 'assets/images/evaporator.svg',
-      label: 'Forecast',
-      info: `Weather today: ${weather.weather[0].description}`,
-    },
-    {
-      img: 'assets/images/wind.svg',
-      label: 'Wind',
-      info: `${weather.wind.speed} Wind gusts, m/s`,
-    },
-  ];
+export const ThisDayInfo: React.FC<{ weather: Weather }> = ({ weather }) => {
+  const daysInfo: IdayInfo[] = getDaysInfo(weather);
 
   return (
     <div className='thisDayInfo'>
@@ -37,5 +17,3 @@ const ThisDayInfo: React.FC<{ weather: Weather }> = ({ weather }) => {
     </div>
   );
 };
-
-export default ThisDayInfo;
