@@ -2,7 +2,7 @@ import React from 'react';
 import useTheme from '../../../hooks/useTheme';
 import { NavLink } from 'react-router-dom';
 import { PATH } from '../../../router';
-import { HeaderSelect } from './HeaderSelect';
+import { HeaderSelect } from '../header-select/HeaderSelect';
 
 export const Header: React.FC = () => {
   const theme = useTheme();
