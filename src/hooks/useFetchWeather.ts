@@ -1,7 +1,6 @@
+import { City } from '../services/CitiesService';
 import { weatherAPI } from '../services/WeatherService';
-import { storage } from '../storage/storage';
-import { ICityOption } from '../types';
 
-export const useFetchWeather = (activeCity: ICityOption) => {
-  return weatherAPI.useFetchWeatherDataQuery(storage.getItem('city') || activeCity);
+export const useFetchWeather = (activeCity: City) => {
+  return weatherAPI.useFetchWeatherDataQuery(activeCity);
 };

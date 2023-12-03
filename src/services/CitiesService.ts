@@ -23,7 +23,7 @@ interface AccessTokenResponse {
   access_token: string;
 }
 
-export const apiFetchCities = async (inputValue?: string): Promise<City[]> => {
+export const apiFetchCities = async (inputValue: string): Promise<City[]> => {
   // <--- fetching access token
   const url = 'https://test.api.amadeus.com/v1/security/oauth2/token';
   let accessToken: string | undefined;

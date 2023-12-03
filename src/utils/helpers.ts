@@ -42,3 +42,10 @@ export const createOption = (label: string) => ({
   value: label.toLowerCase().trim().replace(/\W/g, ''),
 });
 // </--- for selectSlice ---/> //
+export const validateCityName = (label: string) => {
+  return label
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s-]/g, '%20');
+};

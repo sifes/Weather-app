@@ -8,7 +8,11 @@ import { NotFound } from '../not-found/NotFound';
 
 export const Home: React.FC = () => {
   const { activeCity } = useCitiesSelector();
-  const { data, isLoading, error } = useFetchWeather(activeCity);
+  const { data, isLoading, error, refetch } = useFetchWeather(activeCity);
+
+  React.useEffect(() => {
+    refetch();
+  }, [activeCity]);
 
   if (error) return <NotFound />;
   if (isLoading) return <div>Loading...</div>;
@@ -16,6 +20,7 @@ export const Home: React.FC = () => {
   const weatherArray = data.list;
   const currentCity = data.city.name;
   const currentCountry = data.city.country;
+  
   return (
     <>
       <div className='home-wrapper'>

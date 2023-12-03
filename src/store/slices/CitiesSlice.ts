@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SingleValue } from 'react-select';
-import { createOption } from '../../utils/helpers';
-import { IOption } from '../../types';
 import { apiFetchCities, City } from '../../services/CitiesService';
+import { INITIAL_ACTIVE_CITY } from '../../utils/constants';
 
 export const fetchCities = createAsyncThunk('weather/fetchCities', async (inputValue: string) => {
   const cities = await apiFetchCities(inputValue);
@@ -10,16 +8,12 @@ export const fetchCities = createAsyncThunk('weather/fetchCities', async (inputV
 });
 
 type State = {
-  options: IOption[];
-  value: IOption | null;
-  activeCity: IOption;
+  activeCity: City;
   cities: City[];
 };
 
 const initialState: State = {
-  options: [createOption('London'), createOption('Kyiv'), createOption('Rome')],
-  value: null,
-  activeCity: { value: 'kyiv', label: 'Kyiv' },
+  activeCity: INITIAL_ACTIVE_CITY,
   cities: [],
 };
 
@@ -27,24 +21,15 @@ export const CitiesSlice = createSlice({
   name: 'cities',
   initialState,
   reducers: {
-    handleCreate: (state: State, action: PayloadAction<IOption>) => {
-      const newOption = createOption(action.payload.label);
-      state.options.push(newOption);
-      state.value = newOption;
+    setActiveCity: (state, action: PayloadAction<City>) => {
       state.activeCity = action.payload;
     },
-    handleInput: (state: State, action: PayloadAction<SingleValue<IOption>>) => {
-      state.value = action.payload;
-      state.activeCity = state.value || { value: 'kyiv', label: 'Kyiv' };
-    },
-    handleCancel: (state: State, action: PayloadAction<SingleValue<IOption>>) => {
-      state.options = state.options.filter((option) => option.value !== action.payload?.value);
-      state.value = { value: 'kyiv', label: 'Kyiv' };
-      state.activeCity = { value: 'kyiv', label: 'Kyiv' };
-    },
-    removeCity: (state: State, action: PayloadAction<string>) => {
-      const cityToRemove = action.payload;
-      state.options = state.options.filter((option) => option.value !== cityToRemove);
+    setToDefaultActiveCity: (state) => {
+      state.activeCity = {
+        name: 'kyiv',
+        address: { cityName: 'Kyiv' },
+        geoCode: { latitude: 50.45, longitude: 30.52 },
+      };
     },
   },
   extraReducers(builder) {
@@ -63,5 +48,5 @@ export const CitiesSlice = createSlice({
   },
 });
 
-export const { handleCreate, handleInput, handleCancel, removeCity } = CitiesSlice.actions;
+export const { setActiveCity, setToDefaultActiveCity } = CitiesSlice.actions;
 export default CitiesSlice.reducer;

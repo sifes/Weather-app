@@ -1,3 +1,4 @@
+import React from 'react';
 import { useCitiesSelector, useWeatherSelector } from '../../../hooks/storeHooks';
 import { useFetchWeather } from '../../../hooks/useFetchWeather';
 import { Weather } from '../../../types';
@@ -7,13 +8,16 @@ import { Tabs } from './tabs/Tabs';
 
 export const Forecast: React.FC = () => {
   const { activeCity } = useCitiesSelector();
-  const { data, isLoading } = useFetchWeather(activeCity);
+  const { data, isLoading, refetch } = useFetchWeather(activeCity);
   const { isDaysShown } = useWeatherSelector();
+  React.useEffect(() => {
+    refetch();
+  }, [activeCity]);
 
-  if (isLoading) return <div>Loading...</div>;
-
+  if (!data) return <div>Something went wrong...</div>;
   const weatherArray: Weather[] = data.list;
 
+  if (isLoading) return <div>Loading...</div>;
   return (
     <>
       <Tabs today={weatherArray.slice(0, 8)} tomorrow={weatherArray.slice(8, 16)} />

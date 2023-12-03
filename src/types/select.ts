@@ -5,4 +5,8 @@ export interface IOption {
 export interface ICityOption {
   value: string;
   label: string;
+  geoCode: {
+    latitude: number;
+    longitude: number;
+  };
 }
