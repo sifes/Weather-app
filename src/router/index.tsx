@@ -1,8 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from './Layout';
-import { NotFound } from '../pages/not-found/NotFound';
-import { Statistics } from '../pages/statistics/Statistics';
 import { Home } from '../pages/home/Home';
+import { Statistics } from '../pages/statistics/Statistics';
+import { NotFound } from '../pages/not-found/NotFound';
+
 
 export enum PATH {
   INDEX = '/',
