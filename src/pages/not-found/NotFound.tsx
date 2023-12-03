@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { PATH } from '../../router';
 import { storage } from '../../storage/storage';
 import { useCustomDispatch } from '../../hooks/storeHooks';
-import { handleCancel } from '../../store/slices/CitiesSlice';
+import { setToDefaultActiveCity } from '../../store/slices/CitiesSlice';
 
 export const NotFound: React.FC = () => {
   const dispatch = useCustomDispatch();
@@ -15,8 +15,8 @@ export const NotFound: React.FC = () => {
       <br />
       <NavLink
         onClick={() => {
-          dispatch(handleCancel(storage.getItem('city')));
           storage.setItem('city', { value: 'kyiv', label: 'Kyiv' });
+          dispatch(setToDefaultActiveCity());
         }}
         to={PATH.INDEX}
         className='logo'

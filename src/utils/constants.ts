@@ -1,0 +1,27 @@
+export const INITIAL_CITIES = [
+  { label: 'Tokyo', value: 'tokyo' },
+  { label: 'New York City', value: 'new-york' },
+  { label: 'Paris', value: 'paris' },
+  { label: 'London', value: 'london' },
+  { label: 'Beijing', value: 'beijing' },
+  { label: 'Rome', value: 'rome' },
+  { label: 'Sydney', value: 'sydney' },
+  { label: 'Rio de Janeiro', value: 'rio-de-janeiro' },
+  { label: 'Cairo', value: 'cairo' },
+  { label: 'Dubai', value: 'dubai' },
+  { label: 'Mumbai', value: 'mumbai' },
+  { label: 'Los Angeles', value: 'los-angeles' },
+  { label: 'Istanbul', value: 'istanbul' },
+  { label: 'Berlin', value: 'berlin' },
+  { label: 'Moscow', value: 'moscow' },
+  { label: 'Toronto', value: 'toronto' },
+  { label: 'Hong Kong', value: 'hong-kong' },
+  { label: 'Singapore', value: 'singapore' },
+  { label: 'Mexico City', value: 'mexico-city' },
+  { label: 'Kyiv', value: 'kyiv' },
+];
+export const INITIAL_ACTIVE_CITY = {
+  name: 'kyiv',
+  address: { cityName: 'Kyiv' },
+  geoCode: { latitude: 50.45, longitude: 30.52 },
+};

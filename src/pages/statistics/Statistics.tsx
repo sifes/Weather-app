@@ -6,7 +6,11 @@ import { NotFound } from '../not-found/NotFound';
 
 export const Statistics: React.FC = () => {
   const { activeCity } = useCitiesSelector();
-  const { data, isLoading, error } = useFetchWeather(activeCity);
+  const { data, isLoading, error, refetch } = useFetchWeather(activeCity);
+
+  React.useEffect(() => {
+    refetch();
+  }, [activeCity]);
 
   if (error) return <NotFound />;
   if (isLoading) return <div>Loading...</div>;
