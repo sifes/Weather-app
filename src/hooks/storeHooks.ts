@@ -8,6 +8,6 @@ export const useCustomSelector: TypedUseSelectorHook<RootState> = useSelector;
 export const useWeatherSelector = () => {
   return useCustomSelector((state) => state.WeatherSliceReducer);
 };
-export const useSelectSelector = () => {
-  return useCustomSelector((state) => state.SelectSliceReducer);
+export const useCitiesSelector = () => {
+  return useCustomSelector((state) => state.CitiesSliceReducer);
 };

@@ -1,22 +1,30 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SingleValue } from 'react-select';
 import { createOption } from '../../utils/helpers';
 import { IOption } from '../../types';
+import { apiFetchCities, City } from '../../services/CitiesService';
+
+export const fetchCities = createAsyncThunk('weather/fetchCities', async (inputValue: string) => {
+  const cities = await apiFetchCities(inputValue);
+  return cities;
+});
 
 type State = {
   options: IOption[];
   value: IOption | null;
   activeCity: IOption;
+  cities: City[];
 };
 
 const initialState: State = {
   options: [createOption('London'), createOption('Kyiv'), createOption('Rome')],
   value: null,
   activeCity: { value: 'kyiv', label: 'Kyiv' },
+  cities: [],
 };
 
-export const SelectSlice = createSlice({
-  name: 'select',
+export const CitiesSlice = createSlice({
+  name: 'cities',
   initialState,
   reducers: {
     handleCreate: (state: State, action: PayloadAction<IOption>) => {
@@ -39,7 +47,21 @@ export const SelectSlice = createSlice({
       state.options = state.options.filter((option) => option.value !== cityToRemove);
     },
   },
+  extraReducers(builder) {
+    builder.addCase(fetchCities.fulfilled, (state, action) => {
+      if (action.payload.length) {
+        state.cities = action.payload.map((value) => ({
+          name: value.name,
+          address: {
+            cityName:
+              value.address.cityName[0] + value.address.cityName.slice(1, value.address.cityName.length).toLowerCase(),
+          },
+          geoCode: { latitude: +value.geoCode.latitude.toFixed(2), longitude: +value.geoCode.longitude.toFixed(2) },
+        }));
+      }
+    });
+  },
 });
 
-export const { handleCreate, handleInput, handleCancel, removeCity } = SelectSlice.actions;
-export default SelectSlice.reducer;
+export const { handleCreate, handleInput, handleCancel, removeCity } = CitiesSlice.actions;
+export default CitiesSlice.reducer;

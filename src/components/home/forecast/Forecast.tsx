@@ -1,4 +1,4 @@
-import { useSelectSelector, useWeatherSelector } from '../../../hooks/storeHooks';
+import { useCitiesSelector, useWeatherSelector } from '../../../hooks/storeHooks';
 import { useFetchWeather } from '../../../hooks/useFetchWeather';
 import { Weather } from '../../../types';
 import { OneDayDetailed } from './days-detailed/day-detailed/DayDetailed';
@@ -6,7 +6,7 @@ import { Days } from './days/Days';
 import { Tabs } from './tabs/Tabs';
 
 export const Forecast: React.FC = () => {
-  const { activeCity } = useSelectSelector();
+  const { activeCity } = useCitiesSelector();
   const { data, isLoading } = useFetchWeather(activeCity);
   const { isDaysShown } = useWeatherSelector();
 

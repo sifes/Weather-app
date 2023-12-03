@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelectSelector } from '../../hooks/storeHooks';
+import { useCitiesSelector } from '../../hooks/storeHooks';
 import { useFetchWeather } from '../../hooks/useFetchWeather';
 import { Forecast } from '../../components/home/forecast/Forecast';
 import { ThisDayInfo } from '../../components/home/this-day-info/ThisDayInfo';
@@ -7,7 +7,7 @@ import { ThisDay } from '../../components/home/this-day/ThisDay';
 import { NotFound } from '../not-found/NotFound';
 
 export const Home: React.FC = () => {
-  const { activeCity } = useSelectSelector();
+  const { activeCity } = useCitiesSelector();
   const { data, isLoading, error } = useFetchWeather(activeCity);
 
   if (error) return <NotFound />;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { DayStatistics } from '../../components/statistics/DayStatistics';
-import { useSelectSelector } from '../../hooks/storeHooks';
+import { useCitiesSelector } from '../../hooks/storeHooks';
 import { useFetchWeather } from '../../hooks/useFetchWeather';
 import { NotFound } from '../not-found/NotFound';
 
 export const Statistics: React.FC = () => {
-  const { activeCity } = useSelectSelector();
+  const { activeCity } = useCitiesSelector();
   const { data, isLoading, error } = useFetchWeather(activeCity);
 
   if (error) return <NotFound />;

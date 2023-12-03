@@ -1,11 +1,18 @@
 import React from 'react';
 import CreatableSelect from 'react-select/creatable';
-import { GroupBase, OptionProps, StylesConfig } from 'react-select';
-import { ICityOption } from '../../../types';
-import { useCustomDispatch, useSelectSelector } from '../../../hooks/storeHooks';
-import { handleCreate, handleInput, removeCity } from '../../../store/slices/SelectSlice';
+import { GroupBase, OptionProps, OptionsOrGroups, SingleValue, StylesConfig } from 'react-select';
+import { ICityOption, IOption } from '../../../types';
+import { useCitiesSelector, useCustomDispatch, useCustomSelector } from '../../../hooks/storeHooks';
+import { handleCreate, handleInput, removeCity } from '../../../store/slices/CitiesSlice';
 import { storage } from '../../../storage/storage';
-
+import Select from 'react-select/dist/declarations/src/Select';
+import { weatherAPI } from '../../../services/WeatherService';
+import { useEffect } from 'react';
+import { fetchCities } from '../../../store/slices/CitiesSlice';
+import { customStyles } from './HeaderSelect.styles';
+import Async, { useAsync } from 'react-select/async';
+import AsyncSelect from 'react-select/async';
+import { City, apiFetchCities } from '../../../services/CitiesService';
 const CustomOption: React.FC<OptionProps<ICityOption>> = ({ innerProps, label, data }) => {
   const dispatch = useCustomDispatch();
   const handleRemove = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -21,49 +28,67 @@ const CustomOption: React.FC<OptionProps<ICityOption>> = ({ innerProps, label, d
 };
 
 export const HeaderSelect: React.FC = () => {
-  const { options, value } = useSelectSelector();
+  const { options, value, cities } = useCitiesSelector();
   const dispatch = useCustomDispatch();
 
-  const customStyles: StylesConfig<any, boolean, GroupBase<ICityOption>> = {
-    control: (base) => ({
-      ...base,
-      backgroundColor: 'var(--default-background-day)',
-      color: 'var(--default-color)',
-    }),
-    singleValue: (base) => ({
-      ...base,
-      color: 'var(--default-color)',
-    }),
-    menu: (base) => ({
-      ...base,
-      backgroundColor: 'var(--default-background-day)',
-      color: 'var(--default-color)',
-      width: 'max-content',
-    }),
-    input: (base) => ({
-      ...base,
-      color: 'var(--default-color)',
-    }),
+  useEffect(() => {
+    dispatch(fetchCities('p'));
+  }, [dispatch]);
+
+  console.log(cities);
+
+  const promiseOptions = async (inputValue: string) => {
+    const result = await dispatch(fetchCities(inputValue));
+    console.log(result);
+    if (result.payload) {
+      const options = (result.payload as City[]).map((item) => ({
+        label: item.name,
+        value: item.name,
+      })) as OptionsOrGroups<any, GroupBase<ICityOption>>;
+      return options;
+    }
+    return [];
   };
   return (
-    <CreatableSelect
-      onChange={(newValue) => {
+    <AsyncSelect
+      cacheOptions
+      defaultOptions
+      loadOptions={(inputValue, callback) => {
+        promiseOptions(inputValue).then((options) => callback(options));
+      }}
+      placeholder='Select a city...'
+      onChange={(newValue: SingleValue<IOption>) => {
         dispatch(handleInput(newValue));
-        storage.setItem(
-          'city',
-          options.find((item) => item.value === newValue?.value),
-        );
+        // storage.setItem(
+        //   'city',
+        //   options.find((item) => item.value === newValue?.value),
+        // );
       }}
-      onCreateOption={(inputValue) => {
-        dispatch(handleCreate({ label: inputValue, value: inputValue }));
-        storage.setItem('city', { value: inputValue, label: inputValue });
-      }}
-      options={options}
       value={value || storage.getItem('city')}
       components={{
         Option: CustomOption,
       }}
       styles={customStyles}
     />
+
+    // <CreatableSelect
+    //   onChange={(newValue: IOption) => {
+    //     dispatch(handleInput(newValue));
+    //     storage.setItem(
+    //       'city',
+    //       options.find((item) => item.value === newValue?.value),
+    //     );
+    //   }}
+    //   onCreateOption={(inputValue) => {
+    //     dispatch(handleCreate({ label: inputValue, value: inputValue }));
+    //     storage.setItem('city', { value: inputValue, label: inputValue });
+    //   }}
+    //   options={options}
+    //   value={value || storage.getItem('city')}
+    //   components={{
+    //     Option: CustomOption,
+    //   }}
+    //   styles={customStyles}
+    // />
   );
 };
