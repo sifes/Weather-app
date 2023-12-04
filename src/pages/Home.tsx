@@ -1,10 +1,10 @@
 import React from 'react';
-import { useCitiesSelector } from '../../hooks/storeHooks';
-import { useFetchWeather } from '../../hooks/useFetchWeather';
-import { Forecast } from '../../components/home/forecast/Forecast';
-import { ThisDayInfo } from '../../components/home/this-day-info/ThisDayInfo';
-import { ThisDay } from '../../components/home/this-day/ThisDay';
-import { NotFound } from '../not-found/NotFound';
+import { useCitiesSelector } from '../hooks/storeHooks';
+import { useFetchWeather } from '../hooks/useFetchWeather';
+import { Forecast } from '../components/home/forecast/Forecast';
+import { ThisDayInfo } from '../components/home/this-day-info/ThisDayInfo';
+import { ThisDay } from '../components/home/this-day/ThisDay';
+import { NotFound } from './NotFound';
 
 export const Home: React.FC = () => {
   const { activeCity } = useCitiesSelector();
@@ -20,7 +20,7 @@ export const Home: React.FC = () => {
   const weatherArray = data.list;
   const currentCity = data.city.name;
   const currentCountry = data.city.country;
-  
+
   return (
     <>
       <div className='home-wrapper'>

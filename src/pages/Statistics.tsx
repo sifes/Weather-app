@@ -1,8 +1,8 @@
 import React from 'react';
-import { DayStatistics } from '../../components/statistics/DayStatistics';
-import { useCitiesSelector } from '../../hooks/storeHooks';
-import { useFetchWeather } from '../../hooks/useFetchWeather';
-import { NotFound } from '../not-found/NotFound';
+import { DayStatistics } from '../components/statistics/DayStatistics';
+import { useCitiesSelector } from '../hooks/storeHooks';
+import { useFetchWeather } from '../hooks/useFetchWeather';
+import { NotFound } from './NotFound';
 
 export const Statistics: React.FC = () => {
   const { activeCity } = useCitiesSelector();
