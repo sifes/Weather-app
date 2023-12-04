@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# Weather-App
+Check the weather around you and all over the world at a glance.
+Rely on the accurate weather forecast and adjust your schedule to the weather coming in. You won’t even have to look out the window as the app will make you feel like you are already outside!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Weather is sometimes difficult to predict. This accurate weather app allows to find out a detailed forecast wherever you are
+- Current and “Feels like” temperature
+- Wind speed and direction
+- Current Weather: Get real-time weather information for a specific location.
+- Pressure and precipitation information 
+- Weather metrics & Wind roses
+- Responsive Design: Access the app seamlessly on various devices.
+- 
+- 
+- Location Autocomplete: Easily find locations with autocomplete suggestions.
+- Temperature Unit Selector: Switch between Celsius and Fahrenheit.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Sample-Image
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![homepage](https://github.com/sifes/Weather-app/assets/131526240/7a924dad-9b6c-45ce-a38b-2ea0ffc9fcec)
 
-### `npm test`
+![metrics](https://github.com/sifes/Weather-app/assets/131526240/1e844586-fc07-445f-bf2e-d49d0a7f1865)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Live-Preview
 
-### `npm run build`
+[Click Here to View Live Preview](https://weather-app-sigma-eosin.vercel.app)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/weather-app.git
+  
+2. Navigate to the project directory:
+      ```bash
+      cd weather-app
+      
+3. Install dependencies:
+    ```bash
+    npm install
+    
+4. Run the app:
+    ```bash
+    npm start  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Open your browser and navigate to http://localhost:3000.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Contributing
+Contributions are welcome! Please follow these steps:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Fork the project.
+Create your feature branch (git checkout -b feature/YourFeature).
+Commit your changes (git commit -m 'Add YourFeature').
+Push to the branch (git push origin feature/YourFeature).
+Open a pull request.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p align="center"><b>Created by sifes</b></p>
